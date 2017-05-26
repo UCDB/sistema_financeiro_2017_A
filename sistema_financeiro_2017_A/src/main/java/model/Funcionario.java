@@ -2,13 +2,7 @@ package model;
 
 public class Funcionario {
 	private int id;
-	private String nome;
-	private String endereco;
-	private String cpf;
-	private String rg;
-	private String telefone;
-	private String cep;
-	private String email;
+	private String nome,endereco,cpf,rg,telefone,cep,email;
 	//private String infoAdc;
 	
 	public Funcionario(){
