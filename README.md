@@ -10,3 +10,19 @@ Sistema Financeiro 2017 A
 -Esboço do BD
 
 :shipit:
+
+**Ata dia 29/05/2017**
+
+**Galo de Kalsa**
+*Classes:
+ - Caixa
+ - CaixaRepositoryBanco
+ - TipoDespesa
+ - TipoDespesaRepositoryBanco
+ - Produto
+ - ProdutoRepositoryBanco
+ - TipoProduto
+ - TipoProdutoRepositoryBanco
+Concluído
+
+:shipit:
