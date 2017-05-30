@@ -46,16 +46,16 @@
     <column id="COL12" populated="true" UUID="520d52ab-8ba6-4ab9-a619-abae86f4d2ef" autoIncrement="false" autoIncrementSequenceName="produto_qtdminestoque_seq" defaultValue="" name="qtdminestoque" nullable="0" physicalName="qtdminestoque" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
      <remarks></remarks>
     </column>
-    <column id="COL13" populated="true" UUID="d46cb80b-fe05-495f-9353-23ccbb7f0d1e" autoIncrement="false" autoIncrementSequenceName="produto_altura_seq" defaultValue="0" name="altura" nullable="1" physicalName="altura" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+    <column id="COL13" populated="true" UUID="d46cb80b-fe05-495f-9353-23ccbb7f0d1e" autoIncrement="false" autoIncrementSequenceName="produto_altura_seq" defaultValue="" name="altura" nullable="0" physicalName="altura" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
      <remarks></remarks>
     </column>
-    <column id="COL14" populated="true" UUID="ae8f39b3-b1ad-4b43-a3e4-fd1ccdac41a5" autoIncrement="false" autoIncrementSequenceName="produto_peso_seq" defaultValue="0" name="peso" nullable="1" physicalName="peso" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL14" populated="true" UUID="ae8f39b3-b1ad-4b43-a3e4-fd1ccdac41a5" autoIncrement="false" autoIncrementSequenceName="produto_peso_seq" defaultValue="" name="peso" nullable="0" physicalName="peso" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL15" populated="true" UUID="b35fc9d5-4aae-4113-b3d5-568cfdaf68e2" autoIncrement="false" autoIncrementSequenceName="produto_largura_seq" defaultValue="0" name="largura" nullable="1" physicalName="largura" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+    <column id="COL15" populated="true" UUID="b35fc9d5-4aae-4113-b3d5-568cfdaf68e2" autoIncrement="false" autoIncrementSequenceName="produto_largura_seq" defaultValue="" name="largura" nullable="0" physicalName="largura" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
      <remarks></remarks>
     </column>
-    <column id="COL16" populated="true" UUID="133126cc-f691-40f6-a4bb-f7785776f2b9" autoIncrement="false" autoIncrementSequenceName="produto_profundidade_seq" defaultValue="0" name="profundidade" nullable="1" physicalName="profundidade" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+    <column id="COL16" populated="true" UUID="133126cc-f691-40f6-a4bb-f7785776f2b9" autoIncrement="false" autoIncrementSequenceName="produto_profundidade_seq" defaultValue="" name="profundidade" nullable="0" physicalName="profundidade" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
      <remarks></remarks>
     </column>
     <column id="COL17" populated="true" UUID="7e184308-8b99-411a-b750-1e43fec5565c" autoIncrement="false" autoIncrementSequenceName="medidaproduto_id_medidaproduto_seq" defaultValue="" name="id_medidaproduto" nullable="0" physicalName="id_medidaproduto" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
@@ -252,7 +252,7 @@
  <ddl-generator type="ca.sqlpower.architect.ddl.GenericDDLGenerator" allow-connection="true"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
- <play-pen zoom="1.1892071150027206" viewportX="548" viewportY="353" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+ <play-pen zoom="1.1892071150027206" viewportX="565" viewportY="463" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
   <table-pane table-ref="TAB1" x="533" y="388" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB23" x="953" y="550" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB28" x="957" y="626" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>

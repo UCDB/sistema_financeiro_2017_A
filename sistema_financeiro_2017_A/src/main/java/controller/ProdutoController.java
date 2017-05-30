@@ -11,12 +11,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import helper.JsonHelper;
+import model.Produto;
 import model.Servico;
 import repository.ServicoRepositoryList;
 import repository.ServicoRepository;
 
 @WebServlet(urlPatterns = "/servicocontroller")
-public class ServicoController<ServicoRepository> extends HttpServlet{
+public class ProdutoController<ServicoRepository> extends HttpServlet{
 
 	private ServicoRepository servicoRepository = (ServicoRepository) new repository.ServicoRepositoryBanco();
 	
@@ -24,20 +25,21 @@ public class ServicoController<ServicoRepository> extends HttpServlet{
 	
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-		String referencia = req.getParameter("referencia");
 		String descricao = req.getParameter("descricao");
-		String tipo = req.getParameter("tipo");
-		Double valorServico = Double.parseDouble(req.getParameter("valorServico"));
-		Double valorMax = Double.parseDouble(req.getParameter("valorMax"));
-		Double valorMin = Double.parseDouble(req.getParameter("valorMin"));
+		Integer codbarras = Integer.parseInt(req.getParameter("codbarras"));
+		Integer id_fornercedor = Integer.parseInt(req.getParameter("id_fornercedor"));
+		Double precocusto = Double.parseDouble(req.getParameter("precocusto"));
+		Double precovenda = Double.parseDouble(req.getParameter("precovenda"));
+		Double precominvenda = Double.parseDouble(req.getParameter("precominvenda"));
+		Double precomaxvenda = Double.parseDouble(req.getParameter("precomaxvenda"));
+		Double comissaovenda = Double.parseDouble(req.getParameter("comissaovenda"));
 		
+		Produto prod = new Produto(null, descricao, codbarras, id_fornercedor, precocusto, precovenda, precominvenda, precomaxvenda, comissaovenda, qtdestoque, qtdminestque, altura, peso, largura, profundidade, id_medidaproduto, id_tipopodruto, id_funcionario, validade)
 		
-		Servico serv = new Servico(null, referencia, descricao, tipo, valorServico, valorMax, valorMin);
-		
-		((repository.ServicoRepository)servicoRepository).cadastrar(serv);
+		((repository.ServicoRepository)servicoRepository).cadastrar(prod);
 		
 		try {
-			resp.getWriter().println(jsonHelper.gerarJson(serv));
+			resp.getWriter().println(jsonHelper.gerarJson(prod));
 		} catch (IllegalArgumentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
