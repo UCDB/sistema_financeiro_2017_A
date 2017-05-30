@@ -8,8 +8,8 @@ public class Funcionario {
 	public Funcionario(){
 		
 	}
-	public Funcionario(int id,String nome, String endereco, String cpf, String rg, String telefone, String cep, String email ){
-		this.id = id;
+	public Funcionario(String nome, String endereco, String cpf, String rg, String telefone, String cep, String email ){
+	
 		this.nome = nome;
 		this.endereco = endereco;
 		this.cpf = cpf;
