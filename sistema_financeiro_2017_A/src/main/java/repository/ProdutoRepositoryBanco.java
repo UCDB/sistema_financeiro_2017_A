@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import model.Produto;
-import model.Servico;
 
 public class ProdutoRepositoryBanco {
 
@@ -42,13 +41,13 @@ public class ProdutoRepositoryBanco {
 			ps.setDouble(7, prod.getPrecomaxvenda());
 			ps.setDouble(8, prod.getComissaovenda());
 			ps.setDouble(9, prod.getQtdestoque());
-			ps.setDouble(10, prod.getQtdminestque());
+			ps.setDouble(10, prod.getQtdminestoque());
 			ps.setDouble(11, prod.getAltura());
 			ps.setDouble(12, prod.getPeso());
 			ps.setDouble(13, prod.getLargura());
 			ps.setDouble(14, prod.getProfundidade());
 			ps.setInt(15, prod.getIdmedidaproduto());
-			ps.setInt(16, prod.getIdtipopodruto());
+			ps.setInt(16, prod.getIdtipoproduto());
 			ps.setInt(17, prod.getId_funcionario());
 			ps.setString(18, prod.getValidade());
 			
@@ -92,13 +91,13 @@ public class ProdutoRepositoryBanco {
 			ps.setDouble(7, prod.getPrecomaxvenda());
 			ps.setDouble(8, prod.getComissaovenda());
 			ps.setDouble(9, prod.getQtdestoque());
-			ps.setDouble(10, prod.getQtdminestque());
+			ps.setDouble(10, prod.getQtdminestoque());
 			ps.setDouble(11, prod.getAltura());
 			ps.setDouble(12, prod.getPeso());
 			ps.setDouble(13, prod.getLargura());
 			ps.setDouble(14, prod.getProfundidade());
 			ps.setInt(15, prod.getIdmedidaproduto());
-			ps.setInt(16, prod.getIdtipopodruto());
+			ps.setInt(16, prod.getIdtipoproduto());
 			ps.setInt(17, prod.getId_funcionario());
 			ps.setString(18, prod.getValidade());
 			

@@ -12,19 +12,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import helper.JsonHelper;
 import model.Produto;
-import model.Servico;
-import repository.ServicoRepositoryList;
-import repository.ServicoRepository;
+import repository.ProdutoRepositoryBanco;
 
-@WebServlet(urlPatterns = "/servicocontroller")
-public class ProdutoController<ServicoRepository> extends HttpServlet{
+@WebServlet(urlPatterns = "/produtocontroller")
+public class ProdutoController<ProdutoRepository> extends HttpServlet {
 
-	private ServicoRepository servicoRepository = (ServicoRepository) new repository.ServicoRepositoryBanco();
-	
+	private static final long serialVersionUID = 1L;
+	ProdutoRepositoryBanco pro = new ProdutoRepositoryBanco();
 	private JsonHelper jsonHelper = new JsonHelper();
-	
-	
+
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+		
+		Integer id_produto = Integer.parseInt(req.getParameter("id_produto"));
 		String descricao = req.getParameter("descricao");
 		Integer codbarras = Integer.parseInt(req.getParameter("codbarras"));
 		Integer id_fornercedor = Integer.parseInt(req.getParameter("id_fornercedor"));
@@ -33,10 +32,38 @@ public class ProdutoController<ServicoRepository> extends HttpServlet{
 		Double precominvenda = Double.parseDouble(req.getParameter("precominvenda"));
 		Double precomaxvenda = Double.parseDouble(req.getParameter("precomaxvenda"));
 		Double comissaovenda = Double.parseDouble(req.getParameter("comissaovenda"));
-		
-		Produto prod = new Produto(null, descricao, codbarras, id_fornercedor, precocusto, precovenda, precominvenda, precomaxvenda, comissaovenda, qtdestoque, qtdminestque, altura, peso, largura, profundidade, id_medidaproduto, id_tipopodruto, id_funcionario, validade)
-		
-		((repository.ServicoRepository)servicoRepository).cadastrar(prod);
+		Double qtdestoque = Double.parseDouble(req.getParameter("qtdestoque"));
+		Double qtdminestoque = Double.parseDouble(req.getParameter("qtdminestoque"));
+		Double altura = Double.parseDouble(req.getParameter("altura"));
+		Double peso = Double.parseDouble(req.getParameter("peso"));
+		Double largura = Double.parseDouble(req.getParameter("largura"));
+		Double profundidade = Double.parseDouble(req.getParameter("profundidade"));
+		Integer id_medidaproduto = Integer.parseInt(req.getParameter("id_medidaproduto"));
+		Integer id_tipoproduto = Integer.parseInt(req.getParameter("id_tipoproduto"));
+		Integer id_funcionario = Integer.parseInt(req.getParameter("id_funcionario"));
+		String validade = req.getParameter("validade");
+
+		Produto prod = new Produto(id_produto,
+				descricao,
+				codbarras,
+				id_fornercedor,
+				precocusto,
+				precovenda,
+				precominvenda,
+				precomaxvenda,
+				comissaovenda,
+				qtdestoque,
+				qtdminestoque,
+				altura,
+				peso,
+				largura,
+				profundidade,
+				id_medidaproduto,
+				id_tipoproduto,
+				id_funcionario,
+				validade);
+
+		pro.cadastrar(prod);
 		
 		try {
 			resp.getWriter().println(jsonHelper.gerarJson(prod));
@@ -51,23 +78,23 @@ public class ProdutoController<ServicoRepository> extends HttpServlet{
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String opcao = req.getParameter("opcao");
 		String json;
-		
-		if( opcao == "buscarId" ){
+
+		if (opcao == "buscarId") {
 			try {
 				int id = Integer.parseInt(req.getParameter("id"));
-				json = jsonHelper.gerarJson(((ServicoRepositoryList) servicoRepository).buscarPorId(id));
+				json = jsonHelper.gerarJson(((ProdutoRepositoryList) produtoRepository).buscarPorId(id));
 				resp.getWriter().print(json);
 			} catch (IllegalArgumentException | IllegalAccessException | InvocationTargetException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		
+
 	}
-	
+
 }

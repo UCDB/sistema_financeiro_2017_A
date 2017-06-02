@@ -11,20 +11,20 @@ public class Produto {
 	private double precomaxvenda;
 	private double comissaovenda;
 	private double qtdestoque;
-	private double qtdminestque;
+	private double qtdminestoque;
 	private double altura;
 	private double peso;
 	private double largura;
 	private double profundidade;
 	private int id_medidaproduto;
-	private int id_tipopodruto;
+	private int id_tipoproduto;
 	private int id_funcionario;
 	private String validade;
 	
 	public Produto(int id_produto, String descricao, int codbarras, int id_fornercedor, double precocusto,
 			double precovenda, double precominvenda, double precomaxvenda, double comissaovenda, double qtdestoque,
-			double qtdminestque, double altura, double peso, double largura, double profundidade, int id_medidaproduto,
-			int id_tipopodruto, int id_funcionario, String validade) {
+			double qtdminestoque, double altura, double peso, double largura, double profundidade, int id_medidaproduto,
+			int id_tipoproduto, int id_funcionario, String validade) {
 		this.id_produto = id_produto;
 		this.descricao = descricao;
 		this.codbarras = codbarras;
@@ -35,13 +35,13 @@ public class Produto {
 		this.precomaxvenda = precomaxvenda;
 		this.comissaovenda = comissaovenda;
 		this.qtdestoque = qtdestoque;
-		this.qtdminestque = qtdminestque;
+		this.qtdminestoque = qtdminestoque;
 		this.altura = altura;
 		this.peso = peso;
 		this.largura = largura;
 		this.profundidade = profundidade;
 		this.id_medidaproduto = id_medidaproduto;
-		this.id_tipopodruto = id_tipopodruto;
+		this.id_tipoproduto = id_tipoproduto;
 		this.id_funcionario = id_funcionario;
 		this.validade = validade;
 	}
@@ -103,11 +103,11 @@ public class Produto {
 	public void setQtdestoque(int qtdestoque) {
 		this.qtdestoque = qtdestoque;
 	}
-	public double getQtdminestque() {
-		return qtdminestque;
+	public double getQtdminestoque() {
+		return qtdminestoque;
 	}
-	public void setQtdminestque(int qtdminestque) {
-		this.qtdminestque = qtdminestque;
+	public void setQtdminestoque(int qtdminestoque) {
+		this.qtdminestoque = qtdminestoque;
 	}
 	public double getAltura() {
 		return altura;
@@ -139,14 +139,14 @@ public class Produto {
 	public void setIdmedidaproduto(int id_medidaproduto) {
 		this.id_medidaproduto = id_medidaproduto;
 	}
-	public int getIdtipopodruto() {
-		return id_tipopodruto;
+	public int getIdtipoproduto() {
+		return id_tipoproduto;
 	}
 	public void setCodbarras(int codbarras) {
 		this.codbarras = codbarras;
 	}
-	public void setId_tipopodruto(int id_tipopodruto) {
-		this.id_tipopodruto = id_tipopodruto;
+	public void setId_tipoproduto(int id_tipoproduto) {
+		this.id_tipoproduto = id_tipoproduto;
 	}
 	public int getId_funcionario() {
 		return id_funcionario;
