@@ -47,12 +47,12 @@ public class Fornecedor {
 	//Setters
 
 	public void setId(Integer id) {		this.id = id;	}
-	public void setNome(String name) {		this.nome = nome;	}
+	public void setNome(String nome) {		this.nome = nome;	}
 	public void setEndereco(String endereco) {		this.endereco = endereco;	}
 	public void setCPF_CNPJ(String cPF_CNPJ) {		cpf_cnpj = cPF_CNPJ;	}
 	public void setRG_IE(String rG_IE) {		rg_ie = rG_IE;	}
 	public void setTelefone(String telefone) {		this.telefone = telefone;	}
-	public void setCEP(String cEP) {		this.cep = cep;	}
+	public void setCEP(String cep) {		this.cep = cep;	}
 	public void setContato(String contato) {		this.contato = contato;	}
 	public void setInfo(String info) {		this.info = info;	}
 	public void setEmail(String email) {		this.email = email;	}
