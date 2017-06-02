@@ -2,20 +2,14 @@ package model;
 
 public class Funcionario {
 	private int id;
-	private String nome;
-	private String endereco;
-	private String cpf;
-	private String rg;
-	private String telefone;
-	private String cep;
-	private String email;
+	private String nome,endereco,cpf,rg,telefone,cep,email;
 	//private String infoAdc;
 	
 	public Funcionario(){
 		
 	}
-	public Funcionario(int id,String nome, String endereco, String cpf, String rg, String telefone, String cep, String email ){
-		this.id = id;
+	public Funcionario(String nome, String endereco, String cpf, String rg, String telefone, String cep, String email ){
+	
 		this.nome = nome;
 		this.endereco = endereco;
 		this.cpf = cpf;
