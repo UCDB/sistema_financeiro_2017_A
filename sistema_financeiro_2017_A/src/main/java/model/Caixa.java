@@ -8,10 +8,20 @@ public class Caixa {
 	public double valor;
 	public boolean status;
 	public String descricao, data;
-
 	
+	public Caixa(){};
 
-	
+	public Caixa(int formapagamento, int id_cliente, int id_tipodespesa, double valor, boolean status, String descricao,
+			String data) {
+		
+		this.formapagamento = formapagamento;
+		this.id_cliente = id_cliente;
+		this.id_tipodespesa = id_tipodespesa;
+		this.valor = valor;
+		this.status = status;
+		this.descricao = descricao;
+		this.data = data;
+	}
 
 	public int getId_cliente() {
 		return id_cliente;

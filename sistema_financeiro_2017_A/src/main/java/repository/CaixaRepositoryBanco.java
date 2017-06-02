@@ -4,8 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import model.Caixa;
+import model.Servico;
 
 
 public class CaixaRepositoryBanco {
@@ -66,4 +69,40 @@ public class CaixaRepositoryBanco {
 			e.printStackTrace();
 		}
 	}
+	
+	public List<Caixa> buscarTodos() {
+
+		List<Caixa> lista = new ArrayList<>();
+
+		try {			
+			String sql = "select * from servico order by descricao";
+			
+			PreparedStatement prepareStatement = conexao.prepareStatement(sql);
+			ResultSet result = prepareStatement.executeQuery();
+
+			while (result.next()) {
+				
+				Integer formapagamento = result.getInt("formapagamento");
+				Integer id_cliente = result.getInt("id_cliente");
+				Integer id_tipodespesa = result.getInt("id_tipodespesa");
+				Double valor = (result.getDouble("valor"));
+				Boolean status = result.getBoolean("status");				
+				String descricao = result.getString("descricao");				
+				String data = result.getString("data");
+
+				Caixa caix = new Caixa(formapagamento,id_cliente,id_tipodespesa,valor,status,descricao,data);
+				
+
+				lista.add(caix);
+
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return lista;
+	}
+	
 }
