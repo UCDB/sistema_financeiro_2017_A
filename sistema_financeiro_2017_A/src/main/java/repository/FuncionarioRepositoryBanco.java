@@ -36,6 +36,7 @@ private Connection conexao = ConexaoFactory.criarConexao();
 
 	}
 	
+	
 	public void alterar(Funcionario func) {
 		String sql = "update funcionario set nome=?,endereco=?,cpf=?,rg=?,telefone=?,cep=?,email=? where id=?";
 
