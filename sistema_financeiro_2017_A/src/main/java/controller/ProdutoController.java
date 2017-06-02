@@ -81,18 +81,16 @@ public class ProdutoController<ProdutoRepository> extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String opcao = req.getParameter("opcao");
+	
 		String json;
 
-		if (opcao == "buscarId") {
-			try {
-				int id = Integer.parseInt(req.getParameter("id"));
-				json = jsonHelper.gerarJson(pro.buscarTodos());
-				resp.getWriter().print(json);
-			} catch (IllegalArgumentException | IllegalAccessException | InvocationTargetException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		try {
+			
+			json = jsonHelper.gerarJson(pro.buscarTodos());
+			resp.getWriter().print(json);
+		} catch (IllegalArgumentException | IllegalAccessException | InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 	}
