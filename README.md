@@ -26,3 +26,21 @@ Sistema Financeiro 2017 A
 Concluído
 
 :shipit:
+
+**Ata dia 01/06/2017** 
+**Galo de Kalsa**
+*Classes:
+  - TipoServico
+  - TipoServicoRepositoryBanco
+  - TipoServicoController
+  - CaixaController
+  - ProdutoController
+  - MedidaProduto
+  - MedidaProdutoRepositoryBanco
+Concluído
+
+  - MedidaProdutoController
+  - Relatórios de produto
+Em andamento
+
+:shipit:
