@@ -4,6 +4,14 @@ public class Medida_produto {
 	private int id_medidaproduto;
 	private String descricao;
 
+	public Medida_produto(){
+		
+	}
+	
+	public Medida_produto(String descricao) {
+		this.descricao = descricao;
+	}
+
 	public int getId_medidaproduto() {
 		return id_medidaproduto;
 	}
