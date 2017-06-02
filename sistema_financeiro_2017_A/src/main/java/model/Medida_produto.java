@@ -9,6 +9,7 @@ public class Medida_produto {
 	}
 	
 	
+	
 	public Medida_produto(String descricao) {
 		this.descricao = descricao;
 	}

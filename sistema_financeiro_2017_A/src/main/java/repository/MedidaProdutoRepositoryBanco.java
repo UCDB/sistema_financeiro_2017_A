@@ -49,6 +49,7 @@ private Connection conexao = ConexaoFactory.criarConexao();
 		}
 		return lista;
 		
+		
 	}
 	public Medida_produto buscarPorId(Integer id) {
 		try {
