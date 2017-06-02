@@ -87,7 +87,7 @@ public class ProdutoController<ProdutoRepository> extends HttpServlet {
 		if (opcao == "buscarId") {
 			try {
 				int id = Integer.parseInt(req.getParameter("id"));
-				json = jsonHelper.gerarJson(((ProdutoRepositoryList) produtoRepository).buscarPorId(id));
+				json = jsonHelper.gerarJson(pro.buscarTodos());
 				resp.getWriter().print(json);
 			} catch (IllegalArgumentException | IllegalAccessException | InvocationTargetException e) {
 				// TODO Auto-generated catch block
