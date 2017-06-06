@@ -2,10 +2,14 @@ package repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import model.Produto;
 import model.Servico;
+import model.TipoDespesa;
 import model.TipoProduto;
 
 public class TipoProdutoRepositoryBanco {
@@ -43,6 +47,36 @@ public class TipoProdutoRepositoryBanco {
 		}
 
 	}
+	
+	public  List<TipoProduto> buscarTodos() {
+		List<TipoProduto> lista = new ArrayList<>();
+
+		try {			
+			String sql = "select * from tipo_produto order by id_tipoproduto";
+			PreparedStatement prepareStatement = conexao.prepareStatement(sql);
+			ResultSet result = prepareStatement.executeQuery();
+
+			while (result.next()) {
+				
+				Integer id_tipoproduto = result.getInt("id_tipoproduto");				
+				String descricao = result.getString("descricao");
+				
+				TipoProduto tipo_Produto = new TipoProduto(id_tipoproduto,descricao);
+				
+
+				lista.add(tipo_Produto);
+
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return lista;
+	}
+	
+	
 	
 	public void excluir(int id) {
 		try {

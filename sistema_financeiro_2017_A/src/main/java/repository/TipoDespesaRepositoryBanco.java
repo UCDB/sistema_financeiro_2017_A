@@ -52,7 +52,7 @@ public class TipoDespesaRepositoryBanco {
 			e.printStackTrace();
 		}
 	}
-	public static List<TipoDespesa> buscarTodos() {
+	public List<TipoDespesa> buscarTodos() {
 		List<TipoDespesa> lista = new ArrayList<>();
 
 		try {			
