@@ -74,4 +74,15 @@ private Connection conexao = ConexaoFactory.criarConexao();
 		}
 		return null;
 	}
+	public void alterar(Medida_produto m) {
+		String sql = "update medida_produto set descricao=? where id_medidaproduto=?";
+		
+		try{
+			PreparedStatement ps = conexao.prepareStatement(sql);
+			ps.setString(1,m.getDescricao());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

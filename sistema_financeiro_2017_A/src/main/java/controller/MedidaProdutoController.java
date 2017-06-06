@@ -72,4 +72,19 @@ public class MedidaProdutoController extends HttpServlet {
 			}
 		}
 	}
+	
+	public void doPut (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Integer id_medidaproduto = Integer.parseInt(req.getParameter("id_medidaproduto"));
+		String descricao = req.getParameter("descricao");
+		
+		Medida_produto m = new Medida_produto();
+		
+		if(id_medidaproduto != null){
+			m.setId_medidaproduto(id_medidaproduto);
+		}
+		if (descricao != null){
+			m.setDescricao(descricao);
+		}
+		 
+	}
 }
