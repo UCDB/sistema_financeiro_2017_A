@@ -43,6 +43,7 @@ public class MedidaProdutoController extends HttpServlet {
 	}
 	
 	public void doGet (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+	
 		String json;
 		String idb = req.getParameter("id");
 		
@@ -85,6 +86,8 @@ public class MedidaProdutoController extends HttpServlet {
 		if (descricao != null){
 			m.setDescricao(descricao);
 		}
+		
+		medpro.alterar(m);
 		 
 	}
 }
