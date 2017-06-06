@@ -26,7 +26,6 @@ public class MedidaProdutoController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 		
 		String descricao = req.getParameter("descricao");
-		String atalho;
 		Medida_produto m = new Medida_produto(descricao);
 		medpro.cadastrar(m);
 		
@@ -86,5 +85,11 @@ public class MedidaProdutoController extends HttpServlet {
 			m.setDescricao(descricao);
 		}
 		 
+	}
+	@Override
+	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+int id = Integer.parseInt(req.getParameter("id"));
+		
+		medpro.excluir(id);
 	}
 }
