@@ -20,6 +20,8 @@ public class ClienteController extends HttpServlet {
 	
 	private JsonHelper jsonHelper = new JsonHelper();
 	
+	private ClienteRepositoryBanco cr = new ClienteRepositoryBanco();
+	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		Integer id = Integer.parseInt(req.getParameter("id"));
@@ -36,6 +38,12 @@ public class ClienteController extends HttpServlet {
 		Cliente cl = new Cliente(id, nome, endereco, cpf, rg, telefone, cep, contato, info, email);
 	
 		
+	}
+	
+	@Override
+	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Integer id = Integer.parseInt(req.getParameter("id"));
+		cr.excluir(id);
 	}
 	
 }
