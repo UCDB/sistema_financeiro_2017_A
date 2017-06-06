@@ -94,22 +94,8 @@ public List<Cliente> buscarTodos() {
 				String contato= result.getString("contato");
 				String info	= result.getString("info");
 				String email = result.getString("email");
-
-
-				Cliente cl = new Cliente();
 				
-				cl.setId(id);
-				cl.setNome(nome);
-				cl.setEndereco(endereco);
-				cl.setCpf(cpf);
-				cl.setRg(rg);
-				cl.setTelefone(telefone);
-				cl.setCep(cep);
-				cl.setContato(contato);
-				cl.setInfo(info);
-				cl.setEmail(email);
-
-				lista.add(cl);
+				prepareStatement.executeQuery();
 			}
 
 		} catch (SQLException e) {
