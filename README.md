@@ -1,4 +1,4 @@
-# sistema_financeiro_2017_A
+﻿# sistema_financeiro_2017_A
 Sistema Financeiro 2017 A
 
 **Ata dia 25/05/2017**
@@ -44,3 +44,21 @@ Concluído
 Em andamento
 
 :shipit:
+
+**Ata dia 05/06/2017 - ATUALIZADO** 
+**Batgrupo**
+*Classes:
+  - Funcionario
+  - Cliente
+  - Fornecedor
+  - FuncionarioRepositoryBanco
+  - FornecedorRepositoryBanco
+  - ClienteRepositoryBanco
+  - FuncinarioController
+  - FornecedorController
+  - ClienteController
+  - FornecedorRepository
+Concluído
+
+  - ModulosFrontEnd
+Em andamento
