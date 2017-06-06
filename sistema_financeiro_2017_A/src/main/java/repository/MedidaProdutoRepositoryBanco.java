@@ -85,4 +85,16 @@ private Connection conexao = ConexaoFactory.criarConexao();
 			e.printStackTrace();
 		}
 	}
+	public void excluir(int id) {
+		try {
+			String sql = "delete from medida_produto where id_medidaproduto=?";
+			PreparedStatement ps = conexao.prepareStatement(sql);
+			ps.setInt(1,id);
+			ps.execute();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
+	}
 }

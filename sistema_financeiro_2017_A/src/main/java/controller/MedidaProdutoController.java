@@ -90,4 +90,10 @@ public class MedidaProdutoController extends HttpServlet {
 		medpro.alterar(m);
 		 
 	}
+	
+	@Override
+	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		int id = Integer.parseInt(req.getParameter("id_medidaproduto"));
+		medpro.excluir(id);
+	}
 }
