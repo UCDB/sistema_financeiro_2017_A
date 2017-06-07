@@ -32,7 +32,7 @@ public class TipoProdutoRepositoryBanco {
 
 	}
 	
-	public void alterar(Produto prod) {
+	public void alterar(TipoProduto prod) {
 		String sql = "update tipo_produto set descricao=? where id_tipoproduto=?";
 
 		try {

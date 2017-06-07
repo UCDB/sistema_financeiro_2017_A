@@ -9,27 +9,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import helper.JsonHelper;
-import model.TipoDespesa;
+import model.TipoProduto;
 import repository.TipoDespesaRepositoryBanco;
+import repository.TipoProdutoRepositoryBanco;
 
-
-public class TipoDespesaController extends HttpServlet{
-	
-private static final long serialVersionUID = 1L;
-	
-	private TipoDespesaRepositoryBanco tipoDespesaRepository = new TipoDespesaRepositoryBanco();
+public class TipoProdutoController extends HttpServlet {
+	private TipoProdutoRepositoryBanco tipoProdutoRB = new TipoProdutoRepositoryBanco();
 	private JsonHelper jsonHelper = new JsonHelper();
 	
+	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Integer id_tipoDespesa = Integer.parseInt(req.getParameter("id_tipodespesa"));
+		Integer id_tipoProduto = Integer.parseInt(req.getParameter("id_tipoProduto"));
 		String descricao = req.getParameter("descricao");
 		
-		TipoDespesa serv = new TipoDespesa(id_tipoDespesa,descricao);
+		TipoProduto tipoPro = new TipoProduto(id_tipoProduto,descricao);
 
 		
-		tipoDespesaRepository.cadastrar(serv);
+		tipoProdutoRB.cadastrar(tipoPro);
 		try {
-			resp.getWriter().println(jsonHelper.gerarJson(serv));
+			resp.getWriter().println(jsonHelper.gerarJson(tipoPro));
 		} catch (IllegalArgumentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -42,37 +40,32 @@ private static final long serialVersionUID = 1L;
 		}
 	}
 	
+	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String json;			
 		try {				
-			json = jsonHelper.gerarJson(tipoDespesaRepository.buscarTodos());
+			json = jsonHelper.gerarJson(tipoProdutoRB.buscarTodos());
 			resp.getWriter().print(json);
 		} catch (IllegalArgumentException | IllegalAccessException | InvocationTargetException e) {
 			
 			e.printStackTrace();
 		}
 	}
-
+	
 	@Override
 	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Integer idDesp = Integer.parseInt(req.getParameter("id_tipoDespesa"));			
+		Integer idPro = Integer.parseInt(req.getParameter("id_tipoProduto"));
 		String descricao = req.getParameter("descricao");
 		
-		TipoDespesa despesa = new TipoDespesa();
+		TipoProduto pro = new TipoProduto(idPro, descricao);
 		
-		if (descricao != null){
-			despesa.setDescricao(descricao);
-		}
+		tipoProdutoRB.alterar(pro);
 		
-		tipoDespesaRepository.alterar(despesa);
-	
 	}
 	
 	@Override
 	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		int id = Integer.parseInt(req.getParameter("id"));			
-		tipoDespesaRepository.excluir(id);
-	
+		int id = Integer.parseInt(req.getParameter("id"));
+		tipoProdutoRB.excluir(id);
 	}
 }
