@@ -4,10 +4,12 @@ public class TipoProduto {
 	private int id_tipoproduto;
 	private String descricao;
 	
-	public TipoProduto(int id_tipoproduto, String descricao) {
+	public TipoProduto(String descricao) {
 		this.id_tipoproduto = id_tipoproduto;
 		this.descricao = descricao;
 	}
+	
+	public TipoProduto(){};
 	
 	public int getIdtipoproduto() {
 		return id_tipoproduto;

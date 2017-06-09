@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,17 +13,17 @@ import helper.JsonHelper;
 import model.TipoProduto;
 import repository.TipoDespesaRepositoryBanco;
 import repository.TipoProdutoRepositoryBanco;
-
+@WebServlet(urlPatterns = "/tipoprodcontroller")
 public class TipoProdutoController extends HttpServlet {
 	private TipoProdutoRepositoryBanco tipoProdutoRB = new TipoProdutoRepositoryBanco();
 	private JsonHelper jsonHelper = new JsonHelper();
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Integer id_tipoProduto = Integer.parseInt(req.getParameter("id_tipoProduto"));
+		//Integer id_tipoProduto = Integer.parseInt(req.getParameter("id_tipoProduto"));
 		String descricao = req.getParameter("descricao");
 		
-		TipoProduto tipoPro = new TipoProduto(id_tipoProduto,descricao);
+		TipoProduto tipoPro = new TipoProduto(descricao);
 
 		
 		tipoProdutoRB.cadastrar(tipoPro);
@@ -55,9 +56,10 @@ public class TipoProdutoController extends HttpServlet {
 	@Override
 	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Integer idPro = Integer.parseInt(req.getParameter("id_tipoProduto"));
-		String descricao = req.getParameter("descricao");
+		String descricao = req.getParameter("descricao");		
+		TipoProduto pro = new TipoProduto();
 		
-		TipoProduto pro = new TipoProduto(idPro, descricao);
+		pro.setDescricao(descricao);
 		
 		tipoProdutoRB.alterar(pro);
 		
