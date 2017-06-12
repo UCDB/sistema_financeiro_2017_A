@@ -2,13 +2,12 @@ package model;
 
 public class Funcionario {
 	private int id;
-	private String nome,endereco,cpf,rg,telefone,cep,email;
-	//private String infoAdc;
+	private String nome,endereco,cpf,rg,telefone,cep,email,infoAdc;
 	
 	public Funcionario(){
 		
 	}
-	public Funcionario(String nome, String endereco, String cpf, String rg, String telefone, String cep, String email ){
+	public Funcionario(String nome, String endereco, String cpf, String rg, String telefone, String cep, String email, String infoAdc ){
 	
 		this.nome = nome;
 		this.endereco = endereco;
@@ -17,8 +16,15 @@ public class Funcionario {
 		this.telefone = telefone;
 		this.cep = cep;
 		this.email = email;
+		this.infoAdc = infoAdc;
 	}
 	
+	public String getInfoAdc() {
+		return infoAdc;
+	}
+	public void setInfoAdc(String infoAdc) {
+		this.infoAdc = infoAdc;
+	}
 	public int getId() {
 		return id;
 	}

@@ -14,7 +14,7 @@ public class FuncionarioRepositoryBanco {
 private Connection conexao = ConexaoFactory.criarConexao();
 	
 	public void cadastrar(Funcionario func) {
-		String sql = "insert into funcionario (nome,endereco,cpf,rg,telefone,cep,email) values (?,?,?,?,?,?,?)";
+		String sql = "insert into funcionario (nome,endereco,cpf,rg,telefone,cep,email,infoAdc) values (?,?,?,?,?,?,?,?)";
 
 		try {
 			PreparedStatement ps = conexao.prepareStatement(sql);
@@ -26,6 +26,7 @@ private Connection conexao = ConexaoFactory.criarConexao();
 			ps.setString(5, func.getTelefone());
 			ps.setString(6, func.getCep());
 			ps.setString(7, func.getEmail());
+			ps.setString(8, func.getInfoAdc());
 			
 			ps.execute();
 
@@ -38,7 +39,7 @@ private Connection conexao = ConexaoFactory.criarConexao();
 	
 	
 	public void alterar(Funcionario func) {
-		String sql = "update funcionario set nome=?,endereco=?,cpf=?,rg=?,telefone=?,cep=?,email=? where id=?";
+		String sql = "update funcionario set nome=?,endereco=?,cpf=?,rg=?,telefone=?,cep=?,email=?,infoAdc=? where id=?";
 
 		try {
 			PreparedStatement ps = conexao.prepareStatement(sql);
@@ -49,7 +50,8 @@ private Connection conexao = ConexaoFactory.criarConexao();
 			ps.setString(5, func.getTelefone());
 			ps.setString(6, func.getCep());
 			ps.setString(7, func.getEmail());
-			ps.setInt(8, func.getId());
+			ps.setString(8, func.getInfoAdc());
+			ps.setInt(9, func.getId());
 
 			ps.execute();
 
@@ -90,6 +92,7 @@ private Connection conexao = ConexaoFactory.criarConexao();
 				String telefone = result.getString("telefone");
 				String cep = result.getString("cep");
 				String email = result.getString("email");
+				String infoAdc = result.getString("infoAdc");
 
 
 				Funcionario f = new Funcionario();
@@ -101,6 +104,7 @@ private Connection conexao = ConexaoFactory.criarConexao();
 				f.setTelefone(telefone);
 				f.setCep(cep);
 				f.setEmail(email);
+				f.setInfoAdc(infoAdc);
 
 				lista.add(f);
 			}
@@ -130,6 +134,7 @@ private Connection conexao = ConexaoFactory.criarConexao();
 				String telefone = result.getString("telefone");
 				String cep = result.getString("cep");
 				String email = result.getString("email");
+				String infoAdc = result.getString("infoAdc");
 				
 				Funcionario f = new Funcionario();
 				f.setId(idFunc);
@@ -140,6 +145,7 @@ private Connection conexao = ConexaoFactory.criarConexao();
 				f.setTelefone(telefone);
 				f.setCep(cep);
 				f.setEmail(email);
+				f.setInfoAdc(infoAdc);
 
 				return f;
 

@@ -29,9 +29,10 @@ public class FuncionarioController extends HttpServlet {
 		rg = req.getParameter("rg"),
 		telefone = req.getParameter("telefone"),
 		cep = req.getParameter("cep"),
-		email = req.getParameter("email");
+		email = req.getParameter("email"), 
+		infoAdc = req.getParameter("infoAdc");
 		
-		Funcionario f = new Funcionario(nome, endereco, cpf, rg, telefone, cep, email);
+		Funcionario f = new Funcionario(nome, endereco, cpf, rg, telefone, cep, email, infoAdc);
 		func.cadastrar(f);
 		
 		try {
