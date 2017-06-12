@@ -59,6 +59,29 @@ Em andamento
   - ClienteController
   - FornecedorRepository
 Concluído
-
   - ModulosFrontEnd
 Em andamento
+
+**Ata dia 12/06/2017** 
+
+**Nasca de Bacana**
+*Em Andamento:	*
+
+  - Matheus Vilvert:	Teste de Sistemas (Modulos da Equipe)
+  
+  - Matheus Rotta:	->
+  - Eder Mello:		->	Complementação Classe RottaUtils
+  - Kaic:	 	->
+
+  - Andrey Jacques	->
+  - Rinaldo Arakaki	->	Front-End (Produto)
+  - Raul Sergio		->
+
+**BatGrupo**
+*Em Andamento:	*
+	
+ - Finalização da Restruturação do Front-End
+ - Implementação do Delete
+
+:shipit:
+ 	
