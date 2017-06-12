@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import helper.JsonHelper;
 import model.Servico;
 import repository.ServicoRepositoryBanco;
-
+@WebServlet(urlPatterns = "/servcontroller")
 public class ServicoController extends HttpServlet{
 
 		private ServicoRepositoryBanco servicoRepository = new ServicoRepositoryBanco();

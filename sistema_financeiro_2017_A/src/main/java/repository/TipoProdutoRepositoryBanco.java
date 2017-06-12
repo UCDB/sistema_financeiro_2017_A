@@ -17,7 +17,7 @@ public class TipoProdutoRepositoryBanco {
 	private Connection conexao = ConexaoFactory.criarConexao();
 	
 	public void cadastrar(TipoProduto tprod) {
-		String sql = "insert into tipo_produto (descricao) values (?)";
+		String sql = "insert into tipo_produto values (default,?)";
 
 		try {
 			PreparedStatement ps = conexao.prepareStatement(sql);
@@ -61,7 +61,9 @@ public class TipoProdutoRepositoryBanco {
 				Integer id_tipoproduto = result.getInt("id_tipoproduto");				
 				String descricao = result.getString("descricao");
 				
-				TipoProduto tipo_Produto = new TipoProduto(id_tipoproduto,descricao);
+				TipoProduto tipo_Produto = new TipoProduto();
+				tipo_Produto.setDescricao(descricao);
+				tipo_Produto.setIdtipoproduto(id_tipoproduto);
 				
 
 				lista.add(tipo_Produto);
