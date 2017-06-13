@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import utils.RottaUtils;
 
 import helper.JsonHelper;
 import model.Produto;
@@ -23,7 +24,7 @@ public class ProdutoController<ProdutoRepository> extends HttpServlet {
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 		
-		Integer id_produto = Integer.parseInt(req.getParameter("id_produto"));
+		/*Integer id_produto = Integer.parseInt(req.getParameter("id_produto"));
 		String descricao = req.getParameter("descricao");
 		Integer codbarras = Integer.parseInt(req.getParameter("codbarras"));
 		Integer id_fornercedor = Integer.parseInt(req.getParameter("id_fornercedor"));
@@ -41,9 +42,10 @@ public class ProdutoController<ProdutoRepository> extends HttpServlet {
 		Integer id_medidaproduto = Integer.parseInt(req.getParameter("id_medidaproduto"));
 		Integer id_tipoproduto = Integer.parseInt(req.getParameter("id_tipoproduto"));
 		Integer id_funcionario = Integer.parseInt(req.getParameter("id_funcionario"));
-		String validade = req.getParameter("validade");
+		String validade = req.getParameter("validade");*/
 
-		Produto prod = new Produto(id_produto,
+		Produto prod = (Produto) RottaUtils.populaReq(new Produto(), req.getParameterMap());
+		 /* id_produto,
 				descricao,
 				codbarras,
 				id_fornercedor,
@@ -61,7 +63,7 @@ public class ProdutoController<ProdutoRepository> extends HttpServlet {
 				id_medidaproduto,
 				id_tipoproduto,
 				id_funcionario,
-				validade);
+				validade);*/
 
 		pro.cadastrar(prod);
 		
@@ -119,8 +121,8 @@ public class ProdutoController<ProdutoRepository> extends HttpServlet {
 		Integer id_funcionario = Integer.parseInt(req.getParameter("id_funcionario"));
 		String validade = req.getParameter("validade");
 		
-		Produto p = new Produto(id_produto, descricao, codbarras, id_fornercedor, precocusto, precovenda, precominvenda, precomaxvenda, comissaovenda, qtdestoque, qtdminestoque, altura, peso, largura, profundidade, id_medidaproduto, id_tipoproduto, id_funcionario, validade);
-		pro.alterar(p);
+		//Produto p = new Produto(id_produto, descricao, codbarras, id_fornercedor, precocusto, precovenda, precominvenda, precomaxvenda, comissaovenda, qtdestoque, qtdminestoque, altura, peso, largura, profundidade, id_medidaproduto, id_tipoproduto, id_funcionario, validade);
+		//pro.alterar(p);
 	}
 	@Override
 	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

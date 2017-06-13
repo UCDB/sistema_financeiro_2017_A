@@ -3,11 +3,18 @@ package utils;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 public class RottaUtils {
-	public static Object popula(Object obj, Map params){
+	public static Object populaReq(Object obj, Map params){
 		Class<? extends Object> classe = obj.getClass();
 		Set<String> parametro = params.keySet();
 		for(String p : parametro){
@@ -39,5 +46,22 @@ public class RottaUtils {
 				e.printStackTrace();
 			}}
 		return obj;
+	}	
+  
+	
+	//Falta setar a row na rows (erro usando objet de cima, or cast de parametrs (ja vem correto))
+	public static List<? extends Object> populaResult(Object obj, ResultSet rs) throws SQLException {
+	    ResultSetMetaData md = rs.getMetaData();
+	    int columns = md.getColumnCount();
+	    List<Object> rows = new ArrayList<>();
+	    while (rs.next()){
+	    	Map<String, Object> row = new HashMap<String, Object>(columns);
+	        for(int i = 1; i <= columns; ++i){
+	            row.put(md.getColumnName(i), rs.getObject(i));
+	        }
+	        rows.add(populaReq(obj, row));
+	    }
+	    return rows;
 	}
 }
+

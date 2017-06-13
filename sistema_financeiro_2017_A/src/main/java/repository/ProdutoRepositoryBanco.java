@@ -1,14 +1,19 @@
 package repository;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import model.Produto;
 import model.Servico;
+import utils.RottaUtils;
 
 public class ProdutoRepositoryBanco {
 
@@ -23,8 +28,8 @@ public class ProdutoRepositoryBanco {
 		try {
 			PreparedStatement ps = conexao.prepareStatement(sql);
 			ps.setString(1, prod.getDescricao());
-			ps.setInt(2, prod.getCodbarras());
-			ps.setInt(3, prod.getIdfornercedor());
+			ps.setBigDecimal(2, new BigDecimal(prod.getCodbarras()));
+			ps.setInt(3, prod.getId_fornecedor());
 			ps.setDouble(4, prod.getPrecocusto());
 			ps.setDouble(5, prod.getPrecovenda());
 			ps.setDouble(6, prod.getPrecominvenda());
@@ -36,8 +41,8 @@ public class ProdutoRepositoryBanco {
 			ps.setDouble(12, prod.getPeso());
 			ps.setDouble(13, prod.getLargura());
 			ps.setDouble(14, prod.getProfundidade());
-			ps.setInt(15, prod.getIdmedidaproduto());
-			ps.setInt(16, prod.getIdtipoproduto());
+			ps.setInt(15, prod.getId_medidaproduto());
+			ps.setInt(16, prod.getId_tipoproduto());
 			ps.setInt(17, prod.getId_funcionario());
 			ps.setString(18, prod.getValidade());
 
@@ -59,8 +64,8 @@ public class ProdutoRepositoryBanco {
 		try {
 			PreparedStatement ps = conexao.prepareStatement(sql);
 			ps.setString(1, prod.getDescricao());
-			ps.setInt(2, prod.getCodbarras());
-			ps.setInt(3, prod.getIdfornercedor());
+			ps.setBigDecimal(2, new BigDecimal(prod.getCodbarras()));
+			ps.setInt(3, prod.getId_fornecedor());
 			ps.setDouble(4, prod.getPrecocusto());
 			ps.setDouble(5, prod.getPrecovenda());
 			ps.setDouble(6, prod.getPrecominvenda());
@@ -72,8 +77,8 @@ public class ProdutoRepositoryBanco {
 			ps.setDouble(12, prod.getPeso());
 			ps.setDouble(13, prod.getLargura());
 			ps.setDouble(14, prod.getProfundidade());
-			ps.setInt(15, prod.getIdmedidaproduto());
-			ps.setInt(16, prod.getIdtipoproduto());
+			ps.setInt(15, prod.getId_medidaproduto());
+			ps.setInt(16, prod.getId_tipoproduto());
 			ps.setInt(17, prod.getId_funcionario());
 			ps.setString(18, prod.getValidade());
 
@@ -104,7 +109,7 @@ public class ProdutoRepositoryBanco {
 		List<Produto> lista = new ArrayList<>();
 
 		try {
-			String sql = "select * from servico order by descricao";
+			String sql = "select * from produto order by descricao";
 			/*
 			 * if(serv.getDescricao() != null && !serv.getDescricao().equals("")
 			 * ) sql = sql.concat(serv.getDescricao()); if(serv.getTipo() !=
@@ -120,11 +125,11 @@ public class ProdutoRepositoryBanco {
 			PreparedStatement prepareStatement = conexao.prepareStatement(sql);
 			ResultSet result = prepareStatement.executeQuery();
 
-			while (result.next()) {
+			//while (result.next()) {
 
-				Integer id_produto = result.getInt("id_produto");
+				/*Integer id_produto = result.getInt("id_produto");
 				String descricao = result.getString("descricao");
-				Integer codbarras = result.getInt("codbarras");
+				BigInteger codbarras = result.getBigDecimal("codbarras").toBigInteger();
 				Integer id_fornercedor = result.getInt("id_fornercedor");
 				Double precocusto = result.getDouble("precocusto");
 				Double precovenda = result.getDouble("precovenda");
@@ -144,11 +149,10 @@ public class ProdutoRepositoryBanco {
 
 				Produto produto = new Produto(id_produto, descricao, codbarras, id_fornercedor, precocusto, precovenda,
 						precominvenda, precomaxvenda, comissaovenda, qtdestoque, qtdminestoque, altura, peso, largura,
-						profundidade, id_medidaproduto, id_tipoproduto, id_funcionario, validade);
+						profundidade, id_medidaproduto, id_tipoproduto, id_funcionario, validade);*/
 
-				lista.add(produto);
-
-			}
+				lista.addAll((Collection<? extends Produto>) RottaUtils.populaResult(new Produto(), result));
+			//}
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

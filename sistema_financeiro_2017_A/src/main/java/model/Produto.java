@@ -1,34 +1,39 @@
 package model;
 
+import java.math.BigInteger;
+
 public class Produto {
-	private int id_produto;
+	private Integer id_produto;
 	private String descricao;
-	private int codbarras;
-	private int id_fornercedor;
-	private double precocusto;
-	private double precovenda;
-	private double precominvenda;
-	private double precomaxvenda;
-	private double comissaovenda;
-	private double qtdestoque;
-	private double qtdminestoque;
-	private double altura;
-	private double peso;
-	private double largura;
-	private double profundidade;
-	private int id_medidaproduto;
-	private int id_tipoproduto;
-	private int id_funcionario;
+	private String codbarras;
+	private Integer id_fornecedor;
+	private Double precocusto;
+	private Double precovenda;
+	private Double precominvenda;
+	private Double precomaxvenda;
+	private Double comissaovenda;
+	private Double qtdestoque;
+	private Double qtdminestoque;
+	private Double altura;
+	private Double peso;
+	private Double largura;
+	private Double profundidade;
+	private Integer id_medidaproduto;
+	private Integer id_tipoproduto;
+	private Integer id_funcionario;
 	private String validade;
 	
-	public Produto(int id_produto, String descricao, int codbarras, int id_fornercedor, double precocusto,
-			double precovenda, double precominvenda, double precomaxvenda, double comissaovenda, double qtdestoque,
-			double qtdminestoque, double altura, double peso, double largura, double profundidade, int id_medidaproduto,
-			int id_tipoproduto, int id_funcionario, String validade) {
+	public Produto(){}
+
+	public Produto(Integer id_produto, String descricao, String codbarras, Integer id_fornecedor, Double precocusto,
+			Double precovenda, Double precominvenda, Double precomaxvenda, Double comissaovenda, Double qtdestoque,
+			Double qtdminestoque, Double altura, Double peso, Double largura, Double profundidade,
+			Integer id_medidaproduto, Integer id_tipoproduto, Integer id_funcionario, String validade) {
+		super();
 		this.id_produto = id_produto;
 		this.descricao = descricao;
 		this.codbarras = codbarras;
-		this.id_fornercedor = id_fornercedor;
+		this.id_fornecedor = id_fornecedor;
 		this.precocusto = precocusto;
 		this.precovenda = precovenda;
 		this.precominvenda = precominvenda;
@@ -43,122 +48,170 @@ public class Produto {
 		this.id_medidaproduto = id_medidaproduto;
 		this.id_tipoproduto = id_tipoproduto;
 		this.id_funcionario = id_funcionario;
-		this.validade = validade;
-	}
-	
-	public int getIdproduto() {
-		return id_produto;
-	}
-	public void setIdproduto(int id_produto) {
-		this.id_produto = id_produto;
-	}
-	public String getDescricao() {
-		return descricao;
-	}
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-	public int getCodbarras() {
-		return codbarras;
-	}
-	public int getIdfornercedor() {
-		return id_fornercedor;
-	}
-	public void setIdfornercedor(int id_fornercedor) {
-		this.id_fornercedor = id_fornercedor;
-	}
-	public double getPrecocusto() {
-		return precocusto;
-	}
-	public void setPrecocusto(double precocusto) {
-		this.precocusto = precocusto;
-	}
-	public double getPrecovenda() {
-		return precovenda;
-	}
-	public void setPrecovenda(double precovenda) {
-		this.precovenda = precovenda;
-	}
-	public double getPrecominvenda() {
-		return precominvenda;
-	}
-	public void setPrecominvenda(double precominvenda) {
-		this.precominvenda = precominvenda;
-	}
-	public double getPrecomaxvenda() {
-		return precomaxvenda;
-	}
-	public void setPrecomaxvenda(double precomaxvenda) {
-		this.precomaxvenda = precomaxvenda;
-	}
-	public double getComissaovenda() {
-		return comissaovenda;
-	}
-	public void setComissaovenda(double comissaovenda) {
-		this.comissaovenda = comissaovenda;
-	}
-	public double getQtdestoque() {
-		return qtdestoque;
-	}
-	public void setQtdestoque(int qtdestoque) {
-		this.qtdestoque = qtdestoque;
-	}
-	public double getQtdminestoque() {
-		return qtdminestoque;
-	}
-	public void setQtdminestoque(int qtdminestoque) {
-		this.qtdminestoque = qtdminestoque;
-	}
-	public double getAltura() {
-		return altura;
-	}
-	public void setAltura(double altura) {
-		this.altura = altura;
-	}
-	public double getPeso() {
-		return peso;
-	}
-	public void setPeso(double peso) {
-		this.peso = peso;
-	}
-	public double getLargura() {
-		return largura;
-	}
-	public void setLargura(double largura) {
-		this.largura = largura;
-	}
-	public double getProfundidade() {
-		return profundidade;
-	}
-	public void setProfundidade(double profundidade) {
-		this.profundidade = profundidade;
-	}
-	public int getIdmedidaproduto() {
-		return id_medidaproduto;
-	}
-	public void setIdmedidaproduto(int id_medidaproduto) {
-		this.id_medidaproduto = id_medidaproduto;
-	}
-	public int getIdtipoproduto() {
-		return id_tipoproduto;
-	}
-	public void setCodbarras(int codbarras) {
-		this.codbarras = codbarras;
-	}
-	public void setId_tipoproduto(int id_tipoproduto) {
-		this.id_tipoproduto = id_tipoproduto;
-	}
-	public int getId_funcionario() {
-		return id_funcionario;
-	}
-	public void setId_funcionario(int id_funcionario) {
-		this.id_funcionario = id_funcionario;
-	}
-	public String getValidade() {
-		return validade;
-	}
-	public void setValidade(String validade) {
 		this.validade = validade;
 	}
 
+	public Integer getId_produto() {
+		return id_produto;
+	}
+
+	public void setId_produto(Integer id_produto) {
+		this.id_produto = id_produto;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public String getCodbarras() {
+		return codbarras;
+	}
+
+	public void setCodbarras(String codbarras) {
+		this.codbarras = codbarras;
+	}
+
+	public Integer getId_fornecedor() {
+		return id_fornecedor;
+	}
+
+	public void setId_fornecedor(Integer id_fornecedor) {
+		this.id_fornecedor = id_fornecedor;
+	}
+
+	public Double getPrecocusto() {
+		return precocusto;
+	}
+
+	public void setPrecocusto(Double precocusto) {
+		this.precocusto = precocusto;
+	}
+
+	public Double getPrecovenda() {
+		return precovenda;
+	}
+
+	public void setPrecovenda(Double precovenda) {
+		this.precovenda = precovenda;
+	}
+
+	public Double getPrecominvenda() {
+		return precominvenda;
+	}
+
+	public void setPrecominvenda(Double precominvenda) {
+		this.precominvenda = precominvenda;
+	}
+
+	public Double getPrecomaxvenda() {
+		return precomaxvenda;
+	}
+
+	public void setPrecomaxvenda(Double precomaxvenda) {
+		this.precomaxvenda = precomaxvenda;
+	}
+
+	public Double getComissaovenda() {
+		return comissaovenda;
+	}
+
+	public void setComissaovenda(Double comissaovenda) {
+		this.comissaovenda = comissaovenda;
+	}
+
+	public Double getQtdestoque() {
+		return qtdestoque;
+	}
+
+	public void setQtdestoque(Double qtdestoque) {
+		this.qtdestoque = qtdestoque;
+	}
+
+	public Double getQtdminestoque() {
+		return qtdminestoque;
+	}
+
+	public void setQtdminestoque(Double qtdminestoque) {
+		this.qtdminestoque = qtdminestoque;
+	}
+
+	public Double getAltura() {
+		return altura;
+	}
+
+	public void setAltura(Double altura) {
+		this.altura = altura;
+	}
+
+	public Double getPeso() {
+		return peso;
+	}
+
+	public void setPeso(Double peso) {
+		this.peso = peso;
+	}
+
+	public Double getLargura() {
+		return largura;
+	}
+
+	public void setLargura(Double largura) {
+		this.largura = largura;
+	}
+
+	public Double getProfundidade() {
+		return profundidade;
+	}
+
+	public void setProfundidade(Double profundidade) {
+		this.profundidade = profundidade;
+	}
+
+	public Integer getId_medidaproduto() {
+		return id_medidaproduto;
+	}
+
+	public void setId_medidaproduto(Integer id_medidaproduto) {
+		this.id_medidaproduto = id_medidaproduto;
+	}
+
+	public Integer getId_tipoproduto() {
+		return id_tipoproduto;
+	}
+
+	public void setId_tipoproduto(Integer id_tipoproduto) {
+		this.id_tipoproduto = id_tipoproduto;
+	}
+
+	public Integer getId_funcionario() {
+		return id_funcionario;
+	}
+
+	public void setId_funcionario(Integer id_funcionario) {
+		this.id_funcionario = id_funcionario;
+	}
+
+	public String getValidade() {
+		return validade;
+	}
+
+	public void setValidade(String validade) {
+		this.validade = validade;
+	}
+	
+	
+
+	
+	
+	
+
+	
+
+	
+	
+	
 }
