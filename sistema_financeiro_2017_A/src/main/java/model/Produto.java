@@ -25,12 +25,10 @@ public class Produto {
 	
 	public Produto(){}
 
-	public Produto(Integer id_produto, String descricao, String codbarras, Integer id_fornecedor, Double precocusto,
+	public Produto(String descricao, String codbarras, Integer id_fornecedor, Double precocusto,
 			Double precovenda, Double precominvenda, Double precomaxvenda, Double comissaovenda, Double qtdestoque,
 			Double qtdminestoque, Double altura, Double peso, Double largura, Double profundidade,
-			Integer id_medidaproduto, Integer id_tipoproduto, Integer id_funcionario, String validade) {
-		super();
-		this.id_produto = id_produto;
+			Integer id_medidaproduto, Integer id_tipoproduto, Integer id_funcionario, String validade) {				
 		this.descricao = descricao;
 		this.codbarras = codbarras;
 		this.id_fornecedor = id_fornecedor;

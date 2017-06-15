@@ -4,16 +4,19 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import helper.JsonHelper;
+import model.Produto;
 import model.Servico;
 import model.TipoServico;
 import repository.ServicoRepositoryBanco;
 import repository.TipoServicoRepositoryBanco;
-
+import utils.RottaUtils;
+@WebServlet(urlPatterns = "/tiposervicocontroller")
 public class TipoServicoController extends HttpServlet{
 	
 	/**
@@ -24,11 +27,9 @@ public class TipoServicoController extends HttpServlet{
 	private TipoServicoRepositoryBanco tiposervicoRepository = new TipoServicoRepositoryBanco();
 	private JsonHelper jsonHelper = new JsonHelper();
 	
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Integer id_tiposervico = Integer.parseInt(req.getParameter("id_tiposervico"));
-		String descricao = req.getParameter("descricao");
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {		
 		
-		TipoServico serv = new TipoServico(id_tiposervico,descricao);
+		TipoServico serv = (TipoServico) RottaUtils.populaReq(new TipoServico(), req.getParameterMap());	
 
 		
 		TipoServicoRepositoryBanco.cadastrar(serv);
@@ -59,16 +60,9 @@ public class TipoServicoController extends HttpServlet{
 
 	@Override
 	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Integer idServ = Integer.parseInt(req.getParameter("id_tiposervico"));			
-		String descricao = req.getParameter("descricao");
+		TipoServico serv = (TipoServico) RottaUtils.populaReq(new TipoServico(), req.getParameterMap());	
 		
-		TipoServico servico = new TipoServico();
-		
-		if (descricao != null){
-			servico.setDescricao(descricao);
-		}
-		
-		tiposervicoRepository.alterar(servico);
+		tiposervicoRepository.alterar(serv);
 	
 	}
 	

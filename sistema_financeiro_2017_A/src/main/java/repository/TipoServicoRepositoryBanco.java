@@ -14,7 +14,7 @@ public class TipoServicoRepositoryBanco {
 	private static Connection conexao = ConexaoFactory.criarConexao();
 	
 	public static void cadastrar(TipoServico tiposervico) {
-		String sql = "insert into tipo_servico (descricao) values (?)";
+		String sql = "insert into tipo_servico values (default,?)";
 
 		try {
 			PreparedStatement ps = conexao.prepareStatement(sql);			
@@ -62,12 +62,11 @@ public class TipoServicoRepositoryBanco {
 			PreparedStatement prepareStatement = conexao.prepareStatement(sql);
 			ResultSet result = prepareStatement.executeQuery();
 
-			while (result.next()) {
-				
-				Integer id_tiposervico = result.getInt("id_tiposervico");				
+			while (result.next()) {			
+								
 				String descricao = result.getString("descricao");
 				
-				TipoServico tipo_servico = new TipoServico(id_tiposervico,descricao);
+				TipoServico tipo_servico = new TipoServico(descricao);
 				
 
 				lista.add(tipo_servico);

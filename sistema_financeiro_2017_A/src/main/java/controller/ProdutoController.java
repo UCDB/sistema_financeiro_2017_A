@@ -24,46 +24,8 @@ public class ProdutoController<ProdutoRepository> extends HttpServlet {
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 		
-		/*Integer id_produto = Integer.parseInt(req.getParameter("id_produto"));
-		String descricao = req.getParameter("descricao");
-		Integer codbarras = Integer.parseInt(req.getParameter("codbarras"));
-		Integer id_fornercedor = Integer.parseInt(req.getParameter("id_fornercedor"));
-		Double precocusto = Double.parseDouble(req.getParameter("precocusto"));
-		Double precovenda = Double.parseDouble(req.getParameter("precovenda"));
-		Double precominvenda = Double.parseDouble(req.getParameter("precominvenda"));
-		Double precomaxvenda = Double.parseDouble(req.getParameter("precomaxvenda"));
-		Double comissaovenda = Double.parseDouble(req.getParameter("comissaovenda"));
-		Double qtdestoque = Double.parseDouble(req.getParameter("qtdestoque"));
-		Double qtdminestoque = Double.parseDouble(req.getParameter("qtdminestoque"));
-		Double altura = Double.parseDouble(req.getParameter("altura"));
-		Double peso = Double.parseDouble(req.getParameter("peso"));
-		Double largura = Double.parseDouble(req.getParameter("largura"));
-		Double profundidade = Double.parseDouble(req.getParameter("profundidade"));
-		Integer id_medidaproduto = Integer.parseInt(req.getParameter("id_medidaproduto"));
-		Integer id_tipoproduto = Integer.parseInt(req.getParameter("id_tipoproduto"));
-		Integer id_funcionario = Integer.parseInt(req.getParameter("id_funcionario"));
-		String validade = req.getParameter("validade");*/
 
-		Produto prod = (Produto) RottaUtils.populaReq(new Produto(), req.getParameterMap());
-		 /* id_produto,
-				descricao,
-				codbarras,
-				id_fornercedor,
-				precocusto,
-				precovenda,
-				precominvenda,
-				precomaxvenda,
-				comissaovenda,
-				qtdestoque,
-				qtdminestoque,
-				altura,
-				peso,
-				largura,
-				profundidade,
-				id_medidaproduto,
-				id_tipoproduto,
-				id_funcionario,
-				validade);*/
+		Produto prod = (Produto) RottaUtils.populaReq(new Produto(), req.getParameterMap());		
 
 		pro.cadastrar(prod);
 		
@@ -99,30 +61,10 @@ public class ProdutoController<ProdutoRepository> extends HttpServlet {
 	
 	@Override
 	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// capturando valores para alterar
 		
-		Integer id_produto = Integer.parseInt(req.getParameter("id_produto"));
-		String descricao = req.getParameter("descricao");
-		Integer codbarras = Integer.parseInt(req.getParameter("codbarras"));
-		Integer id_fornercedor = Integer.parseInt(req.getParameter("id_fornercedor"));
-		Double precocusto = Double.parseDouble(req.getParameter("precocusto"));
-		Double precovenda = Double.parseDouble(req.getParameter("precovenda"));
-		Double precominvenda = Double.parseDouble(req.getParameter("precominvenda"));
-		Double precomaxvenda = Double.parseDouble(req.getParameter("precomaxvenda"));
-		Double comissaovenda = Double.parseDouble(req.getParameter("comissaovenda"));
-		Double qtdestoque = Double.parseDouble(req.getParameter("qtdestoque"));
-		Double qtdminestoque = Double.parseDouble(req.getParameter("qtdminestoque"));
-		Double altura = Double.parseDouble(req.getParameter("altura"));
-		Double peso = Double.parseDouble(req.getParameter("peso"));
-		Double largura = Double.parseDouble(req.getParameter("largura"));
-		Double profundidade = Double.parseDouble(req.getParameter("profundidade"));
-		Integer id_medidaproduto = Integer.parseInt(req.getParameter("id_medidaproduto"));
-		Integer id_tipoproduto = Integer.parseInt(req.getParameter("id_tipoproduto"));
-		Integer id_funcionario = Integer.parseInt(req.getParameter("id_funcionario"));
-		String validade = req.getParameter("validade");
 		
-		//Produto p = new Produto(id_produto, descricao, codbarras, id_fornercedor, precocusto, precovenda, precominvenda, precomaxvenda, comissaovenda, qtdestoque, qtdminestoque, altura, peso, largura, profundidade, id_medidaproduto, id_tipoproduto, id_funcionario, validade);
-		//pro.alterar(p);
+		Produto prod = (Produto) RottaUtils.populaReq(new Produto(), req.getParameterMap());		
+		pro.alterar(prod);
 	}
 	@Override
 	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

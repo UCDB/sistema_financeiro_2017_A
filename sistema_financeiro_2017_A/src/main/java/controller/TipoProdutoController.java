@@ -10,20 +10,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import helper.JsonHelper;
+import model.Produto;
 import model.TipoProduto;
 import repository.TipoDespesaRepositoryBanco;
 import repository.TipoProdutoRepositoryBanco;
-@WebServlet(urlPatterns = "/tipoprodcontroller")
+import utils.RottaUtils;
+@WebServlet(urlPatterns = "/tipoprodutocontroller")
 public class TipoProdutoController extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private TipoProdutoRepositoryBanco tipoProdutoRB = new TipoProdutoRepositoryBanco();
 	private JsonHelper jsonHelper = new JsonHelper();
 	
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		//Integer id_tipoProduto = Integer.parseInt(req.getParameter("id_tipoProduto"));
-		String descricao = req.getParameter("descricao");
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {		
 		
-		TipoProduto tipoPro = new TipoProduto(descricao);
+		
+		TipoProduto tipoPro = (TipoProduto) RottaUtils.populaReq(new TipoProduto(), req.getParameterMap());
 
 		
 		tipoProdutoRB.cadastrar(tipoPro);
@@ -55,13 +60,11 @@ public class TipoProdutoController extends HttpServlet {
 	
 	@Override
 	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Integer idPro = Integer.parseInt(req.getParameter("id_tipoProduto"));
-		String descricao = req.getParameter("descricao");		
-		TipoProduto pro = new TipoProduto();
+		TipoProduto tipoPro = (TipoProduto) RottaUtils.populaReq(new TipoProduto(), req.getParameterMap());
 		
-		pro.setDescricao(descricao);
+		tipoPro.setDescricao("descricao");
 		
-		tipoProdutoRB.alterar(pro);
+		tipoProdutoRB.alterar(tipoPro);
 		
 	}
 	

@@ -5,7 +5,7 @@ public class TipoProduto {
 	private String descricao;
 	
 	public TipoProduto(String descricao) {
-		this.id_tipoproduto = id_tipoproduto;
+		
 		this.descricao = descricao;
 	}
 	

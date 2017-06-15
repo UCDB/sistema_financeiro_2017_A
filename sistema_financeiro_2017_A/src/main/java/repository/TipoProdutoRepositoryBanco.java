@@ -56,14 +56,12 @@ public class TipoProdutoRepositoryBanco {
 			PreparedStatement prepareStatement = conexao.prepareStatement(sql);
 			ResultSet result = prepareStatement.executeQuery();
 
-			while (result.next()) {
-				
-				Integer id_tipoproduto = result.getInt("id_tipoproduto");				
+			while (result.next()) {							
 				String descricao = result.getString("descricao");
 				
 				TipoProduto tipo_Produto = new TipoProduto();
 				tipo_Produto.setDescricao(descricao);
-				tipo_Produto.setIdtipoproduto(id_tipoproduto);
+				
 				
 
 				lista.add(tipo_Produto);

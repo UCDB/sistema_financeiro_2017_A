@@ -2,20 +2,20 @@ package model;
 
 public class TipoServico {
 	public Integer id_tipoServico;
-	public String descricao;
+	public String descricao;	
 	
-	public TipoServico(Integer id_tiposervico, String descricao) {
-		this.id_tipoServico=id_tiposervico;
+	
+	public TipoServico(String descricao) {		
 		this.descricao=descricao;
 	}
 	public TipoServico() {
 		// TODO Auto-generated constructor stub
 	}
-	public int getId_tipoServico() {
+	public Integer getId_tipoServico() {
 		return id_tipoServico;
 	}
-	public void setId_tipoDespesa(int id_tipoDespesa) {
-		this.id_tipoServico = id_tipoDespesa;
+	public void setId_tipoServico(Integer id_tipoServico) {
+		this.id_tipoServico = id_tipoServico;
 	}
 	public String getDescricao() {
 		return descricao;
@@ -23,4 +23,5 @@ public class TipoServico {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+	
 }

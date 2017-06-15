@@ -81,6 +81,7 @@ public class ProdutoRepositoryBanco {
 			ps.setInt(16, prod.getId_tipoproduto());
 			ps.setInt(17, prod.getId_funcionario());
 			ps.setString(18, prod.getValidade());
+			
 
 			ps.execute();
 
@@ -125,11 +126,9 @@ public class ProdutoRepositoryBanco {
 			PreparedStatement prepareStatement = conexao.prepareStatement(sql);
 			ResultSet result = prepareStatement.executeQuery();
 
-			//while (result.next()) {
-
-				/*Integer id_produto = result.getInt("id_produto");
+			while (result.next()) {				
 				String descricao = result.getString("descricao");
-				BigInteger codbarras = result.getBigDecimal("codbarras").toBigInteger();
+				String codbarras = result.getString("codbarras");
 				Integer id_fornercedor = result.getInt("id_fornercedor");
 				Double precocusto = result.getDouble("precocusto");
 				Double precovenda = result.getDouble("precovenda");
@@ -147,12 +146,12 @@ public class ProdutoRepositoryBanco {
 				Integer id_funcionario = result.getInt("id_funcionario");
 				String validade = result.getString("validade");
 
-				Produto produto = new Produto(id_produto, descricao, codbarras, id_fornercedor, precocusto, precovenda,
+				Produto produto = new Produto(descricao, codbarras, id_fornercedor, precocusto, precovenda,
 						precominvenda, precomaxvenda, comissaovenda, qtdestoque, qtdminestoque, altura, peso, largura,
-						profundidade, id_medidaproduto, id_tipoproduto, id_funcionario, validade);*/
+						profundidade, id_medidaproduto, id_tipoproduto, id_funcionario, validade);
 
-				lista.addAll((Collection<? extends Produto>) RottaUtils.populaResult(new Produto(), result));
-			//}
+				//lista.addAll((Collection<? extends Produto>) RottaUtils.populaResult(new Produto(), result));
+			}
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
