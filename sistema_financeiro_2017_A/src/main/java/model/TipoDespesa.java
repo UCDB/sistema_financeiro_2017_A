@@ -4,8 +4,8 @@ public class TipoDespesa {
 	public int id_tipoDespesa;
 	public String descricao;
 	
-	public TipoDespesa(Integer id_tipoDespesa, String descricao) {
-		this.id_tipoDespesa=id_tipoDespesa;
+	public TipoDespesa(String descricao) {
+	
 		this.descricao=descricao;
 	}
 	public TipoDespesa() {

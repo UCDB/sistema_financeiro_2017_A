@@ -5,29 +5,28 @@ import java.lang.reflect.InvocationTargetException;
 import java.sql.Date;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import helper.JsonHelper;
 import model.Caixa;
+import model.TipoDespesa;
 import repository.CaixaRepositoryBanco;
-
-public class CaixaController {
+import utils.RottaUtils;
+@WebServlet(urlPatterns = "/caixacontroller")
+public class CaixaController extends HttpServlet{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private CaixaRepositoryBanco caixaRepository = new CaixaRepositoryBanco();
 	private JsonHelper jsonHelper = new JsonHelper();
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Integer formapagamento = Integer.parseInt(req.getParameter("formapagamento"));
-		Integer id_cliente = Integer.parseInt(req.getParameter("id_cliente"));
-		Integer id_tipodespesa = Integer.parseInt(req.getParameter("id_tipodespesa"));
-		Double valor = Double.parseDouble(req.getParameter("valor"));
-		Boolean status =  Boolean.parseBoolean((req.getParameter("status")));
-		String descricao = req.getParameter("descricao");
-		String data =(req.getParameter("data"));
-
-		
-		Caixa caix = new Caixa(formapagamento,id_cliente,id_tipodespesa,valor,status,descricao,data);
+		Caixa caix = (Caixa) RottaUtils.populaReq(new Caixa(), req.getParameterMap());
 
 		
 		caixaRepository.cadastrar(caix);
@@ -58,37 +57,8 @@ public class CaixaController {
 	}
 	
 	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Integer formapagamento = Integer.parseInt(req.getParameter("formapagamento"));
-		Integer id_cliente = Integer.parseInt(req.getParameter("id_cliente"));
-		Integer id_tipodespesa = Integer.parseInt(req.getParameter("id_tipodespesa"));
-		Double valor = Double.parseDouble(req.getParameter("valor"));
-		Boolean status =  Boolean.parseBoolean((req.getParameter("status")));
-		String descricao = req.getParameter("descricao");
-		String data =(req.getParameter("data"));
+		Caixa caix = (Caixa) RottaUtils.populaReq(new Caixa(), req.getParameterMap());		
 		
-		Caixa caix = new Caixa();
-		
-		if (formapagamento != null ){
-			caix.setFormapagamento(formapagamento);
-		}
-		if (id_cliente != null){
-			caix.setId_cliente(id_cliente);
-		}
-		if (id_tipodespesa != null ){
-			caix.setId_tipodespesa(id_tipodespesa);
-		}
-		if (valor != null ){
-			caix.setValor(valor);
-		}
-		if (status != null ){
-			caix.setStatus(status);
-		}
-		if (descricao != null ){
-			caix.setDescricao(descricao);
-		}
-		if(data != null){
-			caix.setData(data);
-		}
 		
 		caixaRepository.alterar(caix);
 	

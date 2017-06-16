@@ -12,7 +12,7 @@ import model.Medida_produto;
 public class MedidaProdutoRepositoryBanco {
 private Connection conexao = ConexaoFactory.criarConexao();
 	public void cadastrar(Medida_produto medpro){
-		String sql = "insert into medida_produto (descricao) valules (?)";
+		String sql = "insert into medidaproduto  values (default,?)";
 		
 		
 		try {

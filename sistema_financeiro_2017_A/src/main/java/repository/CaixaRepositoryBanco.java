@@ -16,18 +16,18 @@ public class CaixaRepositoryBanco {
 	private Connection conexao = ConexaoFactory.criarConexao();
 
 	public void cadastrar(Caixa caixa) {
-		String sql = "insert into caixa (data, descricao, valor, status, formapagamento, id_tipodespesa, id_cliente) values (?,?,?,?,?,?,?)";
+		String sql = "insert into caixa values (default,?,?,?,?,?,?,?)";
 
 		try {
 			PreparedStatement ps = conexao.prepareStatement(sql);
-			ps.setString(1, caixa.getData());
-			ps.setString(2, caixa.getDescricao());
+			ps.setInt(5, caixa.getFormapagamento());
+			ps.setInt(7, caixa.getId_cliente());
+			ps.setInt(6, caixa.getId_tipodespesa());
 			ps.setDouble(3, caixa.getValor());
 			ps.setBoolean(4, caixa.isStatus());
-			ps.setInt(5, caixa.getFormapagamento());
-			ps.setInt(6, caixa.getId_tipodespesa());
-			ps.setInt(7, caixa.getId_cliente());
-
+			ps.setString(2, caixa.getDescricao());
+			ps.setString(1, caixa.getData());
+			
 			ps.execute();
 
 		} catch (SQLException e) {
@@ -75,7 +75,7 @@ public class CaixaRepositoryBanco {
 		List<Caixa> lista = new ArrayList<>();
 
 		try {			
-			String sql = "select * from servico order by descricao";
+			String sql = "select * from caixa order by descricao";
 			
 			PreparedStatement prepareStatement = conexao.prepareStatement(sql);
 			ResultSet result = prepareStatement.executeQuery();

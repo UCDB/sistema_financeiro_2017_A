@@ -4,15 +4,18 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import helper.JsonHelper;
 import model.TipoDespesa;
+import model.TipoServico;
 import repository.TipoDespesaRepositoryBanco;
+import utils.RottaUtils;
 
-
+@WebServlet(urlPatterns = "/tipodespesacontroller")
 public class TipoDespesaController extends HttpServlet{
 	
 private static final long serialVersionUID = 1L;
@@ -21,10 +24,7 @@ private static final long serialVersionUID = 1L;
 	private JsonHelper jsonHelper = new JsonHelper();
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Integer id_tipoDespesa = Integer.parseInt(req.getParameter("id_tipodespesa"));
-		String descricao = req.getParameter("descricao");
-		
-		TipoDespesa serv = new TipoDespesa(id_tipoDespesa,descricao);
+		TipoDespesa serv = (TipoDespesa) RottaUtils.populaReq(new TipoDespesa(), req.getParameterMap());
 
 		
 		tipoDespesaRepository.cadastrar(serv);
@@ -55,16 +55,9 @@ private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Integer idDesp = Integer.parseInt(req.getParameter("id_tipoDespesa"));			
-		String descricao = req.getParameter("descricao");
+		TipoDespesa serv = (TipoDespesa) RottaUtils.populaReq(new TipoDespesa(), req.getParameterMap());
 		
-		TipoDespesa despesa = new TipoDespesa();
-		
-		if (descricao != null){
-			despesa.setDescricao(descricao);
-		}
-		
-		tipoDespesaRepository.alterar(despesa);
+		tipoDespesaRepository.alterar(serv);
 	
 	}
 	

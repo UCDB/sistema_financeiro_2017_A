@@ -4,10 +4,11 @@ package model;
 
 public class Caixa {
 
-	public int formapagamento, id_cliente, id_tipodespesa;
-	public double valor;
-	public boolean status;
-	public String descricao, data;
+	private int formapagamento, id_cliente, id_tipodespesa;
+	private double valor;
+	private boolean status;
+	private String descricao, data;
+	private int id_caixa;
 	
 	public Caixa(){};
 
@@ -21,6 +22,16 @@ public class Caixa {
 		this.status = status;
 		this.descricao = descricao;
 		this.data = data;
+	}
+	
+	
+
+	public int getId_caixa() {
+		return id_caixa;
+	}
+
+	public void setId_caixa(int id_caixa) {
+		this.id_caixa = id_caixa;
 	}
 
 	public int getId_cliente() {

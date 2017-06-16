@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import helper.JsonHelper;
 import model.Medida_produto;
+import model.TipoDespesa;
 import repository.MedidaProdutoRepositoryBanco;
+import utils.RottaUtils;
 
 
 
@@ -24,10 +26,7 @@ public class MedidaProdutoController extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-		
-		String descricao = req.getParameter("descricao");
-		
-		Medida_produto m = new Medida_produto(descricao);
+		Medida_produto m = (Medida_produto) RottaUtils.populaReq(new Medida_produto(), req.getParameterMap());
 		medpro.cadastrar(m);
 		
 		try {
@@ -75,17 +74,7 @@ public class MedidaProdutoController extends HttpServlet {
 	}
 	
 	public void doPut (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Integer id_medidaproduto = Integer.parseInt(req.getParameter("id_medidaproduto"));
-		String descricao = req.getParameter("descricao");
-		
-		Medida_produto m = new Medida_produto();
-		
-		if(id_medidaproduto != null){
-			m.setId_medidaproduto(id_medidaproduto);
-		}
-		if (descricao != null){
-			m.setDescricao(descricao);
-		}
+		Medida_produto m = (Medida_produto) RottaUtils.populaReq(new Medida_produto(), req.getParameterMap());
 		
 		medpro.alterar(m);
 		 

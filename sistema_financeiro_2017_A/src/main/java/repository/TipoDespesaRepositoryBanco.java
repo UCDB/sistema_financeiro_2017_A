@@ -14,7 +14,7 @@ public class TipoDespesaRepositoryBanco {
 	private static Connection conexao = ConexaoFactory.criarConexao();
 
 	public static void cadastrar(TipoDespesa tipodespesa) {
-		String sql = "insert into tipo_despesa (descricao) values (?)";
+		String sql = "insert into tipo_despesa values (default,?)";
 
 		try {
 			PreparedStatement ps = conexao.prepareStatement(sql);			
@@ -65,7 +65,7 @@ public class TipoDespesaRepositoryBanco {
 				Integer id_tipoDespesa = result.getInt("id_tipodespesa");				
 				String descricao = result.getString("descricao");
 				
-				TipoDespesa tipo_Despesa = new TipoDespesa(id_tipoDespesa,descricao);
+				TipoDespesa tipo_Despesa = new TipoDespesa(descricao);
 				
 
 				lista.add(tipo_Despesa);
