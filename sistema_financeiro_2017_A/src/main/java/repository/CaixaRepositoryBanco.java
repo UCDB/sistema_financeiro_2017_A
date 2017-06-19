@@ -81,16 +81,15 @@ public class CaixaRepositoryBanco {
 			ResultSet result = prepareStatement.executeQuery();
 
 			while (result.next()) {
-				
-				Integer formapagamento = result.getInt("formapagamento");
-				Integer id_cliente = result.getInt("id_cliente");
-				Integer id_tipodespesa = result.getInt("id_tipodespesa");
-				Double valor = (result.getDouble("valor"));
-				Boolean status = result.getBoolean("status");				
-				String descricao = result.getString("descricao");				
 				String data = result.getString("data");
-
-				Caixa caix = new Caixa(formapagamento,id_cliente,id_tipodespesa,valor,status,descricao,data);
+				String descricao = result.getString("descricao");
+				Double valor = (result.getDouble("valor"));
+				Boolean status = result.getBoolean("status");
+				Integer formapagamento = result.getInt("formapagamento");
+				Integer id_tipodespesa = result.getInt("id_tipodespesa");
+				Integer id_cliente = result.getInt("id_cliente");
+				
+				Caixa caix = new Caixa(data,descricao,valor,status,formapagamento,id_tipodespesa,id_cliente);
 				
 
 				lista.add(caix);
