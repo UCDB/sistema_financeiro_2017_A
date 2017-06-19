@@ -17,17 +17,17 @@ public class ServicoRepositoryBanco {
 	private Connection conexao = ConexaoFactory.criarConexao();
 	
 	public void cadastrar(Servico serv) {
-		String sql = "insert into servico (id_funcionario,id_servico,descricao,tipo,valorServico,valorMax,valorMin) values (?,?,?,?,?,?,?)";
+		String sql = "insert into servico (descricao,valorservico,valorminimo,valormaximo,id_tiposervico,id_funcionario) values (?,?,?,?,?,?)";
 
 		try {
-			PreparedStatement ps = conexao.prepareStatement(sql);
-			ps.setInt(1, serv.getId_funcionario());
-			ps.setInt(2, serv.getId_servico());
-			ps.setString(3, serv.getDescricao());
-			ps.setString(4, serv.getTipo());
-			ps.setDouble(5, serv.getValorServico());
-			ps.setDouble(6, serv.getValorMax());
-			ps.setDouble(7, serv.getValorMin());
+			PreparedStatement ps = conexao.prepareStatement(sql);						
+			ps.setString(1, serv.getDescricao());
+			//ps.setString(3, serv.getTipo());
+			ps.setDouble(2, serv.getValorservico());
+			ps.setDouble(3, serv.getValorminimo());
+			ps.setDouble(4, serv.getValormaximo());			
+			ps.setInt(5, serv.getId_tiposervico());	
+			ps.setInt(6, serv.getId_funcionario());
 			
 			ps.execute();
 
@@ -44,11 +44,10 @@ public class ServicoRepositoryBanco {
 		try {
 			PreparedStatement ps = conexao.prepareStatement(sql);
 			ps.setInt(1, serv.getId_servico());
-			ps.setString(2, serv.getDescricao());
-			ps.setString(3, serv.getTipo());
-			ps.setDouble(4, serv.getValorServico());
-			ps.setDouble(5, serv.getValorMax());
-			ps.setDouble(6, serv.getValorMin());
+			ps.setString(2, serv.getDescricao());			
+			ps.setDouble(4, serv.getValorservico());
+			ps.setDouble(5, serv.getValormaximo());
+			ps.setDouble(6, serv.getValorminimo());
 
 			ps.execute();
 
@@ -93,17 +92,15 @@ public class ServicoRepositoryBanco {
 			PreparedStatement prepareStatement = conexao.prepareStatement(sql);
 			ResultSet result = prepareStatement.executeQuery();
 
-			while (result.next()) {
-				
-				Integer id_funcionario = result.getInt("id_funcionario");
+			while (result.next()) {			
 				Integer id_servico = result.getInt("id_servico");				
-				String descricao = result.getString("descricao");
-				String tipo = result.getString("tipo");				
-				Double valorServico = Double.parseDouble(result.getString("valorServico"));
-				Double valorMax = Double.parseDouble(result.getString("valorMax"));
-				Double valorMin = Double.parseDouble(result.getString("valorMin"));
-
-				Servico servico = new Servico(id_funcionario,id_servico,descricao,tipo,valorServico,valorMax,valorMin);
+				String descricao = result.getString("descricao");					
+				Double valorServico = Double.parseDouble(result.getString("valorservico"));
+				Double valorMin = Double.parseDouble(result.getString("valorminimo"));
+				Double valorMax = Double.parseDouble(result.getString("valormaximo"));				
+				Integer id_tiposervico = result.getInt("id_tiposervico");
+				Integer id_funcionario = result.getInt("id_funcionario");
+				Servico servico = new Servico(descricao,valorServico,valorMin,valorMax,id_tiposervico,id_funcionario);
 				
 
 				lista.add(servico);

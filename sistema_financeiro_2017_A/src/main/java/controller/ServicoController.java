@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import helper.JsonHelper;
+import model.Caixa;
 import model.Servico;
 import repository.ServicoRepositoryBanco;
+import utils.RottaUtils;
 @WebServlet(urlPatterns = "/servcontroller")
 public class ServicoController extends HttpServlet{
 
@@ -19,17 +21,7 @@ public class ServicoController extends HttpServlet{
 		private JsonHelper jsonHelper = new JsonHelper();
 		
 		protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-			Integer id_funcionario = Integer.parseInt(req.getParameter("id_funcionario"));
-			Integer id_servico = Integer.parseInt(req.getParameter("id_servico"));
-			String descricao = req.getParameter("descricao");
-			String tipo = req.getParameter("tipo");
-			Double valorServico = Double.parseDouble(req.getParameter("valorServico"));
-			Double valorMax = Double.parseDouble(req.getParameter("valorMax"));
-			Double valorMin = Double.parseDouble(req.getParameter("valorMin"));
-
-			
-			Servico serv = new Servico(id_funcionario,id_servico,descricao,tipo,valorServico,valorMax,valorMin);
-
+			Servico serv= (Servico) RottaUtils.populaReq(new Servico(), req.getParameterMap());
 			
 			servicoRepository.cadastrar(serv);
 			try {
@@ -76,17 +68,15 @@ public class ServicoController extends HttpServlet{
 			if (descricao != null){
 				servico.setDescricao(descricao);
 			}
-			if (tipo != null ){
-				servico.setTipo(tipo);
-			}
+			
 			if (valorServico != null ){
-				servico.setValorServico(valorServico);
+				servico.setValorservico(valorServico);
 			}
 			if (valorMax != null ){
-				servico.setValorMax(valorMax);
+				servico.setValormaximo(valorMax);
 			}
 			if (valorMin != null ){
-				servico.setValorMin(valorMin);
+				servico.setValorminimo(valorMin);
 			}	
 			
 			servicoRepository.alterar(servico);
