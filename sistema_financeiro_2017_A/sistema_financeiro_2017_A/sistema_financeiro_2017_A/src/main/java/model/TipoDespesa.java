@@ -1,7 +1,7 @@
 package model;
 
 public class TipoDespesa {
-	public int id_tipoDespesa;
+	public Integer id_tipoDespesa;
 	public String descricao;
 	
 	public TipoDespesa(String descricao) {
@@ -11,11 +11,10 @@ public class TipoDespesa {
 	public TipoDespesa() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	public int getId_tipoDespesa() {
+	public Integer getId_tipoDespesa() {
 		return id_tipoDespesa;
 	}
-	public void setId_tipoDespesa(int id_tipoDespesa) {
+	public void setId_tipoDespesa(Integer id_tipoDespesa) {
 		this.id_tipoDespesa = id_tipoDespesa;
 	}
 	public String getDescricao() {
@@ -24,4 +23,6 @@ public class TipoDespesa {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+	
+	
 }

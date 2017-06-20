@@ -47,7 +47,7 @@ public class FornecedorRepositoryBanco implements FornecedorRepository{
 			PreparedStatement ps = conexao.prepareStatement(sql);
 			ResultSet result = ps.executeQuery();
 			do {
-				int id = result.getInt("id");
+				Integer id = result.getInt("id");
 				String nome = result.getString("nome");
 				String endereco = result.getString("endereco");
 				String cpf_cnpj = result.getString("cpf_cnpj");

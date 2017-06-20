@@ -1,7 +1,8 @@
 package model;
 
 public class Funcionario {
-	private int id;
+	private Integer id;
+	
 	private String nome,endereco,cpf,rg,telefone,cep,email,infoAdc;
 	
 	public Funcionario(){
@@ -18,17 +19,10 @@ public class Funcionario {
 		this.email = email;
 		this.infoAdc = infoAdc;
 	}
-	
-	public String getInfoAdc() {
-		return infoAdc;
-	}
-	public void setInfoAdc(String infoAdc) {
-		this.infoAdc = infoAdc;
-	}
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getNome() {
@@ -73,5 +67,12 @@ public class Funcionario {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
+	public String getInfoAdc() {
+		return infoAdc;
+	}
+	public void setInfoAdc(String infoAdc) {
+		this.infoAdc = infoAdc;
+	}
+	
+	
 }
