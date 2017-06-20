@@ -2,6 +2,7 @@ package model;
 
 public class Funcionario {
 	private Integer id;
+	
 	private String nome,endereco,cpf,rg,telefone,cep,email,infoAdc;
 	
 	public Funcionario(){
