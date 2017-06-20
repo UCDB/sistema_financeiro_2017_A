@@ -59,7 +59,7 @@ private Connection conexao = ConexaoFactory.criarConexao();
 			ResultSet result = prepareStatement.executeQuery();
 			
 			if (result.next()) {
-				int id_medidaproduto = result.getInt("id");
+				Integer id_medidaproduto = result.getInt("id");
 				String descricao = result.getString("descricao");
 				
 				Medida_produto m = new Medida_produto();

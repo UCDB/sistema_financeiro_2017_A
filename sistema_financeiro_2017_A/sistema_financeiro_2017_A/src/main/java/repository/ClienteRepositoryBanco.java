@@ -84,7 +84,7 @@ public List<Cliente> buscarTodos() {
 			ResultSet result = prepareStatement.executeQuery();
 
 			while (result.next()) {
-				int id = result.getInt("id");
+				Integer id = result.getInt("id");
 				String nome = result.getString("nome");
 				String endereco = result.getString("endereco");
 				String cpf = result.getString("cpf");
