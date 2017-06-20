@@ -3,18 +3,18 @@ package model;
 
 
 public class Caixa {
-	private int id_caixa;
+	private Integer id_caixa;
 	private String data;
 	private String descricao;
-	private double valor;
-	private boolean status;
-	private int formapagamento,id_tipodespesa,id_cliente;
+	private Double valor;
+	private Boolean status;
+	private Integer formapagamento,id_tipodespesa,id_cliente;
 	
 	
 	public Caixa(){}
 
-	public Caixa(String data, String descricao, double valor, boolean status, int formapagamento, int id_tipodespesa,
-			int id_cliente) {
+	public Caixa(String data, String descricao, Double valor, Boolean status, Integer formapagamento, Integer id_tipodespesa,
+			Integer id_cliente) {
 		super();
 		this.data = data;
 		this.descricao = descricao;
@@ -25,133 +25,75 @@ public class Caixa {
 		this.id_cliente = id_cliente;
 	}
 
-
-
-
-
-	public int getId_caixa() {
+	public Integer getId_caixa() {
 		return id_caixa;
 	}
 
-
-
-
-
-	public void setId_caixa(int id_caixa) {
+	public void setId_caixa(Integer id_caixa) {
 		this.id_caixa = id_caixa;
 	}
-
-
-
-
 
 	public String getData() {
 		return data;
 	}
 
-
-
-
-
 	public void setData(String data) {
 		this.data = data;
 	}
-
-
-
-
 
 	public String getDescricao() {
 		return descricao;
 	}
 
-
-
-
-
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
 
-
-
-
-
-	public double getValor() {
+	public Double getValor() {
 		return valor;
 	}
 
-
-
-
-
-	public void setValor(double valor) {
+	public void setValor(Double valor) {
 		this.valor = valor;
 	}
 
-
-
-
-
-	public boolean isStatus() {
+	public Boolean getStatus() {
 		return status;
 	}
 
-
-
-
-
-	public void setStatus(boolean status) {
+	public void setStatus(Boolean status) {
 		this.status = status;
 	}
 
-
-
-
-
-	public int getFormapagamento() {
+	public Integer getFormapagamento() {
 		return formapagamento;
 	}
 
-
-
-
-
-	public void setFormapagamento(int formapagamento) {
+	public void setFormapagamento(Integer formapagamento) {
 		this.formapagamento = formapagamento;
 	}
 
-
-
-
-
-	public int getId_tipodespesa() {
+	public Integer getId_tipodespesa() {
 		return id_tipodespesa;
 	}
 
-
-
-
-
-	public void setId_tipodespesa(int id_tipodespesa) {
+	public void setId_tipodespesa(Integer id_tipodespesa) {
 		this.id_tipodespesa = id_tipodespesa;
 	}
 
-
-
-
-
-	public int getId_cliente() {
+	public Integer getId_cliente() {
 		return id_cliente;
+	}
+
+	public void setId_cliente(Integer id_cliente) {
+		this.id_cliente = id_cliente;
 	}
 
 
 
 
 
-	public void setId_cliente(int id_cliente) {
-		this.id_cliente = id_cliente;
-	};
+	
 
 	
 

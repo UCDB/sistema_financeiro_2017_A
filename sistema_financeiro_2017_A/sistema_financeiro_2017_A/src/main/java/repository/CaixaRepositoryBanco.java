@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Caixa;
-import model.Servico;
 
 
 public class CaixaRepositoryBanco {
@@ -24,7 +23,7 @@ public class CaixaRepositoryBanco {
 			ps.setInt(7, caixa.getId_cliente());
 			ps.setInt(6, caixa.getId_tipodespesa());
 			ps.setDouble(3, caixa.getValor());
-			ps.setBoolean(4, caixa.isStatus());
+			ps.setBoolean(4, caixa.getStatus());
 			ps.setString(2, caixa.getDescricao());
 			ps.setString(1, caixa.getData());
 			
@@ -44,7 +43,7 @@ public class CaixaRepositoryBanco {
 			ps.setString(1, caixa.getData());
 			ps.setString(2, caixa.getDescricao());
 			ps.setDouble(3, caixa.getValor());
-			ps.setBoolean(4, caixa.isStatus());
+			ps.setBoolean(4, caixa.getStatus());
 			ps.setInt(5, caixa.getFormapagamento());
 			ps.setInt(6, caixa.getId_tipodespesa());
 			ps.setInt(7, caixa.getId_cliente());
