@@ -23,14 +23,14 @@ public class FuncionarioController extends HttpServlet {
 	@Override
 	protected void doPost (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		String nome = req.getParameter("nome"), 
-		endereco =  req.getParameter("endereco"), 
-		cpf = req.getParameter("cpf"),
-		rg = req.getParameter("rg"),
-		telefone = req.getParameter("telefone"),
-		cep = req.getParameter("cep"),
-		email = req.getParameter("email"), 
-		infoAdc = req.getParameter("infoAdc");
+		String 	nome 		= req.getParameter("nome");
+		String	endereco 	= req.getParameter("endereco");
+		String	cpf 		= req.getParameter("cpf");
+		String	rg 			= req.getParameter("rg");
+		String	telefone 	= req.getParameter("telefone");
+		String	cep 		= req.getParameter("cep");
+		String	email 		= req.getParameter("email");
+		String	infoAdc		= req.getParameter("info_add");
 		
 		Funcionario f = new Funcionario(nome, endereco, cpf, rg, telefone, cep, email, infoAdc);
 		func.cadastrar(f);
@@ -87,13 +87,14 @@ public class FuncionarioController extends HttpServlet {
 		
 		int idFunc = Integer.parseInt(req.getParameter("id"));
 		
-		String nome = req.getParameter("nome"), 
-				endereco =  req.getParameter("endereco"), 
-				cpf = req.getParameter("cpf"),
-				rg = req.getParameter("rg"),
-				telefone = req.getParameter("telefone"),
-				cep = req.getParameter("cep"),
-				email = req.getParameter("email");
+		String nome = req.getParameter("nome");
+		String	endereco 	=  req.getParameter("endereco");
+		String	cpf 		= req.getParameter("cpf");
+		String	rg 			= req.getParameter("rg");
+		String	telefone 	= req.getParameter("telefone");
+		String	cep 		= req.getParameter("cep");
+		String	email 		= req.getParameter("email");
+		String	infoAdc		= req.getParameter("info_add");
 		
 		Funcionario f = new Funcionario();
 		
@@ -105,6 +106,7 @@ public class FuncionarioController extends HttpServlet {
 		f.setCep(cep);
 		f.setTelefone(telefone);
 		f.setEmail(email);
+		f.setInfoAdc(infoAdc);
 		
 		func.alterar(f);
 	}

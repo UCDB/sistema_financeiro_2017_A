@@ -39,7 +39,7 @@ private Connection conexao = ConexaoFactory.criarConexao();
 	
 	
 	public void alterar(Funcionario func) {
-		String sql = "update funcionario set nome=?,endereco=?,cpf=?,rg=?,telefone=?,cep=?,email=?,infoAdc=? where id=?";
+		String sql = "update funcionario set nome=?,endereco=?,cpf=?,rg=?,telefone=?,cep=?,email=?,infoAdc=? where id_funcionario=?";
 
 		try {
 			PreparedStatement ps = conexao.prepareStatement(sql);
@@ -64,7 +64,7 @@ private Connection conexao = ConexaoFactory.criarConexao();
 	
 	public void excluir(int id) {
 		try {
-			String sql = "delete from funcionario where id=?";
+			String sql = "delete from funcionario where id_funcionario=?";
 			PreparedStatement prepareStatement = conexao.prepareStatement(sql);
 			prepareStatement.setInt(1, id);
 			prepareStatement.execute();
@@ -84,7 +84,7 @@ private Connection conexao = ConexaoFactory.criarConexao();
 			ResultSet result = prepareStatement.executeQuery();
 
 			while (result.next()) {
-				Integer id = result.getInt("id");
+				int id = result.getInt("id");
 				String nome = result.getString("nome");
 				String endereco = result.getString("endereco");
 				String cpf = result.getString("cpf");
@@ -120,13 +120,13 @@ private Connection conexao = ConexaoFactory.criarConexao();
 	public Funcionario buscarPorId(Integer id) {
 		try {
 
-			String sql = "select * from funcionario where id=?";
+			String sql = "select * from funcionario where id_funcionario=?";
 			PreparedStatement prepareStatement = conexao.prepareStatement(sql);
 			prepareStatement.setInt(1, id);
 			ResultSet result = prepareStatement.executeQuery();
 
 			if (result.next()) {
-				int idFunc = result.getInt("id");
+				int idFunc = result.getInt("id_funcionario");
 				String nome = result.getString("nome");
 				String endereco = result.getString("endereco");
 				String cpf = result.getString("cpf");
