@@ -70,11 +70,11 @@ var objeto = new function(){
 	}
 
 	this.remove = function(identificador){
-		//alert("ID: " + identificador);
+		alert("ID: " + identificador);
 		if(confirm("Deseja realmente remover esse "+path_principal)){
-			xhttp.open("DELETE", "/sistema_financeiro_2017_A/"+path_principal, true);
-			//xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-			xhttp.send("id="+identificador);
+			xhttp.open("DELETE", "/sistema_financeiro_2017_A/"+path_principal+"?id="+identificador, true);
+			xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			xhttp.send("id="+identificador)
 			alert(path_principal+" removido com sucesso!"); // retorno ao usuário
 			acessa_modulo(path_principal); // volta pra index principal do modulo ativo
 		}
