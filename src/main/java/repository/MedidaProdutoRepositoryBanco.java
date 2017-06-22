@@ -55,18 +55,18 @@ private Connection conexao = ConexaoFactory.criarConexao();
 		
 	}
 	
-	public List<Medida_produto> buscarPorId(int id_medidaproduto) {
+	/*public List<Medida_produto> buscarPorId(int id_medidaproduto) {
 		
 		List<Medida_produto> lista = new ArrayList<>();
 		
 		try {
-			String sql = "select * from medida_produto where id_medidaproduto=?";
+			String sql = "select * from medidaproduto where id_medidaproduto=?";
 			PreparedStatement prepareStatement = conexao.prepareStatement(sql);
 			prepareStatement.setInt(1, id_medidaproduto);
 			ResultSet result = prepareStatement.executeQuery();
 			
 			if (result.next()) {
-				Integer id = result.getInt("id");
+				int id = result.getInt("id");
 				String descricao = result.getString("descricao");
 				
 				Medida_produto medpro = new Medida_produto();
@@ -81,7 +81,9 @@ private Connection conexao = ConexaoFactory.criarConexao();
 			e.printStackTrace();
 		}
 		return null;
-	}
+	}*/
+	
+	
 	public void alterar(Medida_produto m) {
 		String sql = "update medida_produto set descricao=? where id_medidaproduto=?";
 		
@@ -93,6 +95,8 @@ private Connection conexao = ConexaoFactory.criarConexao();
 			e.printStackTrace();
 		}
 	}
+	
+	
 	public void excluir(int id) {
 		try {
 			String sql = "delete from medida_produto where id_medidaproduto=?";

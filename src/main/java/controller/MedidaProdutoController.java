@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import helper.JsonHelper;
 import model.Medida_produto;
-import model.TipoDespesa;
 import repository.MedidaProdutoRepositoryBanco;
 import utils.RottaUtils;
 
@@ -54,11 +53,11 @@ public class MedidaProdutoController extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		} else {
+		} /*else {
 			idb = req.getParameter("id");
-			Integer id = Integer.parseInt(idb);
+			int id = Integer.parseInt(idb);
 			try {
-				json= jsonHelper.gerarJson(medpro.buscarPorId(id));
+				json= jsonHelper.gerarJsonLista(medpro.buscarPorId(id));
 				resp.getWriter().println(json);
 			} catch (IllegalArgumentException e) {
 				// TODO Auto-generated catch block
@@ -70,7 +69,7 @@ public class MedidaProdutoController extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}
+		}*/
 	}
 	
 	public void doPut (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
