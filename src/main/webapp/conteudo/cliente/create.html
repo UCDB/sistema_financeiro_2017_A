@@ -4,7 +4,7 @@
         <div class="col s12">
             <div class="input-field col s6">
                 <input id="nome_razao" type="text" class="validate" maxlength="200">
-                <label for="nome_razao">Nome / Razão Social</label>
+                <label for="nome">Nome / Razão Social</label>
             </div>
 
             <div class="input-field col s6">
@@ -29,7 +29,7 @@
 
             <div class="input-field col s6">
                 <input id="rg_ie" type="text" class="validate" maxlength="200">
-                <label for="rg_ie">RG / IE</label>
+                <label for="rg_ie">CPF / CNPJ</label>
             </div>
 
             <div class="input-field col s4">
@@ -48,9 +48,33 @@
             </div>
 
             <div class="col s12" align="center" style="margin-top: 2%;">
-                <input type="submit" class="waves-effect waves-light btn-large btn_salvar" value="Salvar Cliente">
+                <a class="waves-effect waves-light btn-large btn_salvar">Salvar Cliente</a>
             </div>
         </div>
     </form>
     <div class="col s1"> <!-- espaçador --> </div>
 </div>
+<script>
+	var objeto = new function(){
+		alert("Dentro Objeto");
+		var xhttp = new XMLHttpRequest();
+	
+		this.create = function(){
+			alert("Aqui");
+			
+			let nome 		= document.getElementById("nome").value;
+			let endereco 	= document.getElementById("endereco").value;
+			let telefone 	= document.getElementById("telefone").value;
+			let email 		= document.getElementById("email").value;
+			let cpf 		= document.getElementById("cpf").value;
+			let rg 			= document.getElementById("rg").value;
+			let cep 		= document.getElementById("cep").value;
+			let contato 	= document.getElementById("contato").value;
+			let info_add 	= document.getElementById("info_add").value;
+	
+			xhttp.open("POST", "/sistema_financeiro_2017_A/"+path_principal, true);
+			xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			xhttp.send("nome="+nome_funcionario+"&endereco="+endereco_funcionario+"&telefone="+telefone_funcionario+"&email="+email_funcionario+"&cpf="+cpf_funcionario+"&rg="+rg_funcionario+"&cep="+cep_funcionario+"&contato="+contato_funcionario+"&info_add="+info_add_funcionario);
+		}
+	}
+</script>
