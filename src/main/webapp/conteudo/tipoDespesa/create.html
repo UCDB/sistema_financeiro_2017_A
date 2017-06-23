@@ -1,0 +1,33 @@
+<div class="row" align="center" style="margin-top: 2%;">
+	<div class="col s1"> <!-- espaçador --> </div>
+    <form class="col s10" action="javascript:void(0)" onsubmit="objeto.create()">
+        <div class="col s12">
+            <div class="input-field col s6">
+                <input id="descricao" type="text" class="validate" maxlength="200">
+                <label for="descricao">Descrição</label>
+            </div>
+
+            <div class="col s12" align="center" style="margin-top: 2%;">
+                <a class="waves-effect waves-light btn-large btn_salvar">Salvar Despesa</a>
+            </div>
+        </div>
+    </form>
+    <div class="col s1"> <!-- espaçador --> </div>
+</div>
+<script>
+	var objeto = new function(){
+		alert("Dentro Objeto");
+		var xhttp = new XMLHttpRequest();
+	
+		this.create = function(){
+			alert("Aqui");
+			
+			let descricao = document.getElementById("descricao").value;
+		
+	
+			xhttp.open("POST", "/sistema_financeiro_2017_A/"+path_principal, true);
+			xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			xhttp.send("descricao="+descricao);
+		}
+	}
+</script>

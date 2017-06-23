@@ -1,0 +1,69 @@
+<div class="row" align="center" style="margin-top: 2%;">
+	<div class="col s1"> <!-- espaçador --> </div>
+    <form class="col s10" action="javascript:void(0)" onsubmit="objeto.create()">
+        <div class="col s12">
+            <div class="input-field col s6">
+                <input id="data" type="text" class="validate" maxlength="200">
+                <label for="data">Data</label>
+            </div>
+
+            <div class="input-field col s6">
+                <input id="descricao" type="text" class="validate" maxlength="200">
+                <label for="descricao">Descrição</label>
+            </div>
+
+            <div class="input-field col s6">
+                <input id="valor" type="text" class="validate" maxlength="200">
+                <label for="valor">Valor</label>
+            </div>
+
+            <div class="input-field col s6">
+                <input id="status" type="text" class="validate" maxlength="200">
+                <label for="status">Status</label>
+            </div>
+
+            <div class="input-field col s6">
+                <input id="formapagamento" type="text" class="validate" maxlength="200">
+                <label for="formapagamento">Formapagamento</label>
+            </div>
+
+            <div class="input-field col s6">
+                <input id="idtipodespesa" type="text" class="validate" maxlength="200">
+                <label for="idtipodespesa">Tipo Despesa</label>
+            </div>
+
+            <div class="input-field col s4">
+                <input id="idcliente" type="text" class="validate" maxlength="200">
+                <label for="idcliente">Cliente</label>
+            </div>
+            
+
+            <div class="col s12" align="center" style="margin-top: 2%;">
+                <a class="waves-effect waves-light btn-large btn_salvar">Salvar Cliente</a>
+            </div>
+        </div>
+    </form>
+    <div class="col s1"> <!-- espaçador --> </div>
+</div>
+<script>
+	var objeto = new function(){
+		alert("Dentro Objeto");
+		var xhttp = new XMLHttpRequest();
+	
+		this.create = function(){
+			alert("Aqui");
+			
+			let data 		    = document.getElementById("data").value;
+			let descricao   	= document.getElementById("descricao").value;
+			let valor   	    = document.getElementById("valor").value;
+			let status 		    = document.getElementById("status").value;
+			let formapagamento  = document.getElementById("formapagamento").value;
+			let idtipodespesa   = document.getElementById("idtipodespesa").value;
+			let idcliente 	   	= document.getElementById("idcliente").value;
+			
+			xhttp.open("POST", "/sistema_financeiro_2017_A/"+path_principal, true);
+			xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			xhttp.send("nome="+nome_funcionario+"&endereco="+endereco_funcionario+"&telefone="+telefone_funcionario+"&email="+email_funcionario+"&cpf="+cpf_funcionario+"&rg="+rg_funcionario+"&cep="+cep_funcionario+"&contato="+contato_funcionario+"&info_add="+info_add_funcionario);
+		}
+	}
+</script>
